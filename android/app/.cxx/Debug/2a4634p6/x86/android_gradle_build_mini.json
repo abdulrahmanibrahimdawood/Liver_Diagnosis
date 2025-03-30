@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/devmuhammadreda/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/devmuhammadreda/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/devmuhammadreda/work/Hepato_Diagnosis/android/app/.cxx/Debug/2a4634p6/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/devmuhammadreda/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/devmuhammadreda/work/Hepato_Diagnosis/android/app/.cxx/Debug/2a4634p6/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

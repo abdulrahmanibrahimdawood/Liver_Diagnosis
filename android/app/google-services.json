@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "831468773599",
+    "project_id": "hepato-diagnosis-d783c",
+    "storage_bucket": "hepato-diagnosis-d783c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831468773599:android:9a68dadd0303b3c38bc96a",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831468773599-74k18tr0ou12ricrleshtd3jr53p5cgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_commerce",
+            "certificate_hash": "f6fdfe2f301c16480237fc166959a2279c778240"
+          }
+        },
+        {
+          "client_id": "831468773599-l04funmdat8ee7m49enhcmqr058bqgjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK6UqIRvpGqr3fLM308YZ-lmshFyAfbfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831468773599-l04funmdat8ee7m49enhcmqr058bqgjq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "831468773599-q5uog2uqlptol3p3bo4ansojhl029tbs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

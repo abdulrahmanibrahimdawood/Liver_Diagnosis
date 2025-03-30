@@ -42,7 +42,7 @@ class HebatoDiagnosis extends StatelessWidget {
       // initialRoute: CustomNavBar.routeName,
 
       // initialRoute: CustomNavBar.,
-      home: SplashView(),
+      home: const SplashView(),
     );
   }
 }

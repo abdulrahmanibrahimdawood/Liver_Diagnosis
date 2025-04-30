@@ -96,7 +96,7 @@ class HomeViewBody extends StatelessWidget {
                       );
                     },
                     child: const Text(
-                      'Go to know the result now',
+                      'Check results',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,

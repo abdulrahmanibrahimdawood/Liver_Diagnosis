@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextFormFeildAnalysis extends StatefulWidget {
   const TextFormFeildAnalysis(
@@ -21,32 +22,32 @@ class _TextFormFeildAnalysisState extends State<TextFormFeildAnalysis> {
           child: Text(
             widget.data,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 13.sp,
               color: widget.color ?? AppColor.kPrimaryColor,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: 4.h,
         ),
         Align(
           alignment: Alignment.topLeft,
           child: SizedBox(
-            height: 40,
-            width: 90,
+            height: 32.h,
+            width: 70.w,
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   borderSide: const BorderSide(color: AppColor.kPrimaryColor),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   borderSide: const BorderSide(color: Colors.black),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   borderSide: const BorderSide(color: AppColor.kPrimaryColor),
                 ),
               ),

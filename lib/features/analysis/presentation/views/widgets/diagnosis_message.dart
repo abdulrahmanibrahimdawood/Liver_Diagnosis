@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DialogHelper {
   static void naturalMessage(BuildContext context) {
@@ -7,40 +8,42 @@ class DialogHelper {
       builder: (BuildContext context) {
         return Dialog(
           child: SizedBox(
-            width: 332,
-            height: 275,
+            width: 1.sw,
+            height: 250.h,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0.sp),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     '🎉',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 64,
+                      fontSize: 62.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  const Text(
+                  SizedBox(height: 14.h),
+                  Text(
                     'Congratulations',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
+                  SizedBox(height: 8.h),
+                  Text(
                     'you do not suffer from any disease.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const Spacer(),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -48,18 +51,18 @@ class DialogHelper {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF4781BF),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
-                      minimumSize: const Size(208, 54),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 48, vertical: 15),
+                      minimumSize: Size(150.w, 40.h),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 48.w, vertical: 15.h),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Ok',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.w700,
                       ),
@@ -80,40 +83,42 @@ class DialogHelper {
       builder: (BuildContext context) {
         return Dialog(
           child: SizedBox(
-            width: 332,
-            height: 275,
+            width: 1.sw,
+            height: 250.h,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0.sp),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     '😢',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 64,
+                      fontSize: 62.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  const Text(
+                  SizedBox(height: 14.h),
+                  Text(
                     'Unfortunately',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
+                  SizedBox(height: 8.h),
+                  Text(
                     'you have liver damage.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const Spacer(),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -121,18 +126,18 @@ class DialogHelper {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFEA4335),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
-                      minimumSize: const Size(208, 54),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 48, vertical: 15),
+                      minimumSize: Size(150.w, 40.h),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 48.w, vertical: 15.h),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Ok',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.w700,
                       ),

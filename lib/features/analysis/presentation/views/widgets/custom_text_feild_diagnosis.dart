@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextDiagnosis extends StatelessWidget {
   const CustomTextDiagnosis(
@@ -15,19 +16,21 @@ class CustomTextDiagnosis extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: Text(
             sufferFrom,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
           ),
         ),
         Row(
           children: [
-            const Text(
+            Text(
               'Do analysis ',
-              style: TextStyle(),
+              style: TextStyle(fontSize: 14.sp),
             ),
             Text(
               analysis,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: AppColor.kPrimaryColor),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: AppColor.kPrimaryColor,
+                  fontSize: 14.sp),
             ),
           ],
         ),

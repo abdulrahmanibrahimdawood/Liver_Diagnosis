@@ -122,7 +122,7 @@ class DoctorCard extends StatelessWidget {
                   TextSpan(
                     children: [
                       const TextSpan(
-                        text: 'Location: ',
+                        text: 'Address: ',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,

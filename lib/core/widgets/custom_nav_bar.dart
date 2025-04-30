@@ -5,7 +5,7 @@ import 'package:e_commerce/features/home/presentation/views/home_view.dart';
 import 'package:e_commerce/features/questions/presentation/views/questions_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});
@@ -43,17 +43,13 @@ class _MainPageState extends State<CustomNavBar> {
         ),
         bottomNavigationBar: Container(
           height: 67.h,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: AppColor.kPrimaryColor.withValues(alpha: .4),
-                spreadRadius: 15.w,
-                blurRadius: 20.r,
-              ),
-            ],
           ),
           child: BottomNavigationBar(
+            selectedLabelStyle:
+                TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
+            unselectedLabelStyle: TextStyle(fontSize: 13.sp),
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             items: List.generate(4, (index) {
@@ -66,15 +62,12 @@ class _MainPageState extends State<CustomNavBar> {
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
-                  child: FaIcon(
-                    index == 0
-                        ? FontAwesomeIcons.houseChimney
-                        : index == 1
-                            ? FontAwesomeIcons.magnifyingGlass
-                            : index == 2
-                                ? FontAwesomeIcons.circleQuestion
-                                : FontAwesomeIcons.stethoscope,
-                    size: 24.sp,
+                  child: SvgPicture.asset(
+                    _selectedIndex == index
+                        ? _activeIcons[index]
+                        : _inactiveIcons[index],
+                    width: 24.sp,
+                    height: 24.sp,
                   ),
                 ),
                 label: index == 0
@@ -92,10 +85,23 @@ class _MainPageState extends State<CustomNavBar> {
             selectedFontSize: 12.sp,
             unselectedFontSize: 12.sp,
             elevation: 0,
-            backgroundColor: AppColor.kPrimaryColor.withValues(alpha: .2),
           ),
         ),
       ),
     );
   }
+
+  final List<String> _activeIcons = [
+    'assets/images/home_active.svg',
+    'assets/images/medical_analysis_active.svg',
+    'assets/images/Q_active.svg',
+    'assets/images/doc_active.svg',
+  ];
+
+  final List<String> _inactiveIcons = [
+    'assets/images/home.svg',
+    'assets/images/medical_analysis.svg',
+    'assets/images/QandAns.svg',
+    'assets/images/doc.svg',
+  ];
 }

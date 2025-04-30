@@ -15,7 +15,7 @@ class AnalysisViewBody extends StatelessWidget {
       child: Column(
         children: [
           const CustomAppBarInside(
-            text1: "Show Results",
+            text1: "Check Results",
           ),
           Padding(
             padding: EdgeInsets.all(16.r),

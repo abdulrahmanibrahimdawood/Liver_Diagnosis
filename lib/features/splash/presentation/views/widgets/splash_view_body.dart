@@ -5,6 +5,7 @@ import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
 import 'package:e_commerce/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerce/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -23,7 +24,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(Assets.assetsImagesSplash),
+      child: Image.asset(
+        Assets.assetsImagesSplash,
+        height: 250.h,
+        width: 250.w,
+      ),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:e_commerce/features/auth/presentation/views/signup_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DontHaveAnAccountWidget extends StatelessWidget {
   const DontHaveAnAccountWidget({
@@ -13,13 +14,13 @@ class DontHaveAnAccountWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          const TextSpan(
+          TextSpan(
             text: "Don't you have an account?",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 14.sp,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w600,
-              color: Color(0xFF949D9E),
+              color: const Color(0xFF949D9E),
             ),
           ),
           const TextSpan(
@@ -34,9 +35,9 @@ class DontHaveAnAccountWidget extends StatelessWidget {
                   Navigator.pushNamed(context, SignupView.routeName);
                 },
               text: 'Create an account',
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColor.kPrimaryColor,
-                fontSize: 16,
+                fontSize: 14.sp,
                 fontFamily: 'Cairo',
                 fontWeight: FontWeight.w600,
               )),

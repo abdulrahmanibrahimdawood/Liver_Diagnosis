@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IconsButton extends StatelessWidget {
@@ -32,7 +33,7 @@ class IconsButton extends StatelessWidget {
               color: Colors.grey.withValues(alpha: 0.15)),
         ],
         color: colorbox ?? Colors.white,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
       ),
       child: IconButton(
         onPressed: onPressed,

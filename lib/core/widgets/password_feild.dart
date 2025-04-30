@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PasswordFeild extends StatefulWidget {
   const PasswordFeild({
@@ -26,8 +27,16 @@ class _PasswordFeildState extends State<PasswordFeild> {
           });
         },
         child: obscureText
-            ? const Icon(Icons.remove_red_eye, color: Colors.blueGrey)
-            : const Icon(Icons.visibility_off, color: Colors.blueGrey),
+            ? Icon(
+                Icons.remove_red_eye,
+                color: Colors.blueGrey,
+                size: 22.sp,
+              )
+            : Icon(
+                Icons.visibility_off,
+                color: Colors.blueGrey,
+                size: 22.sp,
+              ),
       ),
       icon: const Icon(Icons.lock, color: Colors.blueGrey),
       textInputType: TextInputType.visiblePassword,

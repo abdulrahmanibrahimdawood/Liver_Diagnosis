@@ -13,6 +13,7 @@ import 'package:e_commerce/features/auth/presentation/views/widgets/social_login
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
@@ -36,26 +37,27 @@ class _SigninViewBodyState extends State<SigninViewBody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 22.h,
               ),
               CustomTextFormFeild(
                 controller: emailController,
-                icon: const Icon(
+                icon: Icon(
+                  size: 20.sp,
                   Icons.email,
                   color: Colors.blueGrey,
                 ),
                 textInputType: TextInputType.emailAddress,
                 hintText: 'Email',
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 14.h,
               ),
               PasswordFeild(
                 controller: passwordController,
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 14.h,
               ),
               Align(
                 alignment: Alignment.topLeft,
@@ -67,13 +69,13 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     'Forget Password !',
                     style: TextStyle(
                         color: AppColor.kPrimaryColor.withValues(alpha: 1),
-                        fontSize: 15,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 33,
+              SizedBox(
+                height: 31.h,
               ),
               CustomButton(
                   onPressed: () {
@@ -88,16 +90,16 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     }
                   },
                   text: 'Login'),
-              const SizedBox(
-                height: 33,
+              SizedBox(
+                height: 31.h,
               ),
               const DontHaveAnAccountWidget(),
-              const SizedBox(
-                height: 33,
+              SizedBox(
+                height: 31.h,
               ),
               const OrDivider(),
-              const SizedBox(
-                height: 33,
+              SizedBox(
+                height: 31.h,
               ),
               SocialLoginButton(
                 onPressed: () {
@@ -151,14 +153,20 @@ class _SigninViewBodyState extends State<SigninViewBody> {
       if (!mounted) return; // تحقق أن الودجت ما زال في الشجرة
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Password reset link has been sent to your email'),
+        SnackBar(
+          content: Text(
+            'Password reset link has been sent to your email',
+            style: TextStyle(fontSize: 13.sp),
+          ),
         ),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Error: ${e.toString()}'),
+          content: Text(
+            'Error: ${e.toString()}',
+            style: TextStyle(fontSize: 13.sp),
+          ),
         ),
       );
     }

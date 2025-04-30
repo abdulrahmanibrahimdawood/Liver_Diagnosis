@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormFeild extends StatelessWidget {
   const CustomTextFormFeild(
@@ -34,7 +35,7 @@ class CustomTextFormFeild extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefixIcon: icon,
         hintText: hintText,
-        hintStyle: const TextStyle(fontSize: 16, color: Colors.blueGrey),
+        hintStyle: TextStyle(fontSize: 13.sp, color: Colors.blueGrey),
         filled: true,
         fillColor: AppColor.kPrimaryColor.withValues(alpha: 0.1),
         border: buildOutlineInputBorder(),
@@ -46,9 +47,9 @@ class CustomTextFormFeild extends StatelessWidget {
 
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4.0),
-      borderSide: const BorderSide(
-        width: 1,
+      borderRadius: BorderRadius.circular(4.0.r),
+      borderSide: BorderSide(
+        width: 1.w,
         color: Colors.grey,
       ),
     );

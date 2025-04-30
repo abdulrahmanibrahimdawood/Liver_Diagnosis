@@ -8,6 +8,7 @@ import 'package:e_commerce/features/auth/presentation/views/widgets/have_an_acco
 import 'package:e_commerce/features/auth/presentation/views/widgets/terms_and_condations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});
@@ -36,46 +37,48 @@ class _SignupViewBodyState extends State<SignupViewBody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 22.h,
               ),
               CustomTextFormFeild(
                 controller: userNameController,
-                icon: const Icon(
+                icon: Icon(
+                  size: 22.sp,
                   Icons.person,
                   color: Colors.blueGrey,
                 ),
                 textInputType: TextInputType.name,
                 hintText: 'Name',
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 14.h,
               ),
               CustomTextFormFeild(
                 controller: emailController,
-                icon: const Icon(
+                icon: Icon(
+                  size: 20.sp,
                   Icons.email,
                   color: Colors.blueGrey,
                 ),
                 textInputType: TextInputType.emailAddress,
                 hintText: 'Email',
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 14.h,
               ),
               PasswordFeild(
                 controller: passwordController,
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 14.h,
               ),
               TermsAndCondationsWidgets(
                 onChanged: (value) {
                   istermedAccepts = value;
                 },
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: 28.h,
               ),
               CustomButton(
                 text: 'Create an account',
@@ -103,8 +106,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   }
                 },
               ),
-              const SizedBox(
-                height: 26,
+              SizedBox(
+                height: 24.h,
               ),
               const HaveAnAccountWidget()
             ],

@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: Divider(
             color: Color(0xffDCDEDE),
           ),
         ),
         SizedBox(
-          width: 18,
+          width: 16.w,
         ),
         Text(
           'OR',
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Color(0xFFDCDEDE),
-            fontSize: 20,
+            color: const Color(0xFFDCDEDE),
+            fontSize: 18.sp,
             fontFamily: 'Cairo',
             fontWeight: FontWeight.w600,
           ),
         ),
         SizedBox(
-          width: 18,
+          width: 16.w,
         ),
-        Expanded(
+        const Expanded(
           child: Divider(
             color: Color(0xffDCDEDE),
           ),

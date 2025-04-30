@@ -56,7 +56,7 @@ class _OnBoardingViewsBodyState extends State<OnBoardingViewsBody> {
             size: Size(8.0.w, 8.0.h),
             activeSize: Size(16.0.w, 8.0.h),
             activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(5.0.r),
             ),
           ),
         ),

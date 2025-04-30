@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({
@@ -12,13 +13,13 @@ class HaveAnAccountWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          const TextSpan(
+          TextSpan(
             text: "You already have an account?",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 14.sp,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w600,
-              color: Color(0xFF949D9E),
+              color: const Color(0xFF949D9E),
             ),
           ),
           const TextSpan(
@@ -33,9 +34,9 @@ class HaveAnAccountWidget extends StatelessWidget {
                   Navigator.pop(context);
                 },
               text: ' Login now',
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColor.kPrimaryColor,
-                fontSize: 16,
+                fontSize: 14.sp,
                 fontFamily: 'Cairo',
                 fontWeight: FontWeight.w600,
               )),

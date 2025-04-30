@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2' // تأكد من أن هذا محدث
+        classpath 'com.google.gms:google-services:4.3.10' // ✅ أضف هذا هنا
+    }
+}
+
+allprojects {
+    ext.kotlin_version = "1.9.22" // ✅ تحديث Kotlin
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

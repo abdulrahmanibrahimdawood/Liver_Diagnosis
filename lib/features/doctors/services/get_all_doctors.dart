@@ -1,0 +1,18 @@
+import 'package:e_commerce/core/helper_functions/api.dart';
+import 'package:e_commerce/features/checkout/data/models/doctors_model.dart';
+
+class AllDoctorsServices {
+  Future<List<DoctorsModel>> getAllDoctors() async {
+    Map<String, dynamic> response = await Api().get(
+      url:
+          'https://79a3-197-53-53-128.ngrok-free.app/projectq-main/project/doc/doctor_api.php',
+      token: null,
+    );
+
+    List<dynamic> data = response['data'];
+    List<DoctorsModel> doctorsList =
+        data.map((json) => DoctorsModel.fromJson(json)).toList();
+
+    return doctorsList;
+  }
+}

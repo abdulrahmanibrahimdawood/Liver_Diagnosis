@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="app_name">Hepato Diagnosis</string>
+
+<string name="facebook_app_id">1256598125432647</string>
+<string name="fb_login_protocol_scheme">fb1234</string>
+<string name="facebook_client_token">f3a48210d8dca243c394dd9e059d5942</string>
+
+</resources>
+

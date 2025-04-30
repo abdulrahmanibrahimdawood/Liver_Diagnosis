@@ -148,6 +148,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailController.text);
+      if (!mounted) return; // تحقق أن الودجت ما زال في الشجرة
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

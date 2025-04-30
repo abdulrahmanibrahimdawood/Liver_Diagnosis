@@ -2,6 +2,7 @@ import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:e_commerce/core/utils/app_images.dart';
 import 'package:e_commerce/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({super.key, required this.pageController});
@@ -10,7 +11,7 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      children: const [
+      children: [
         PageViewItem(
           isVisiable: true,
           image: 'assets/images/one.png',
@@ -22,12 +23,12 @@ class OnBoardingPageView extends StatelessWidget {
             children: [
               Text(
                 'Welcome to ',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
               ),
               Text(
                 'HDx App',
                 style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColor.kPrimaryColor),
               )
@@ -45,7 +46,7 @@ class OnBoardingPageView extends StatelessWidget {
             children: [
               Text(
                 'Fast and Reliable Results',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -61,7 +62,7 @@ class OnBoardingPageView extends StatelessWidget {
             children: [
               Text(
                 'Start Your Health Journey',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
               ),
             ],
           ),

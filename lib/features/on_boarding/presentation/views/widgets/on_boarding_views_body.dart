@@ -6,6 +6,7 @@ import 'package:e_commerce/core/widgets/custom_button.dart';
 import 'package:e_commerce/features/auth/presentation/views/signin_view.dart';
 import 'package:e_commerce/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingViewsBody extends StatefulWidget {
   const OnBoardingViewsBody({super.key});
@@ -51,16 +52,16 @@ class _OnBoardingViewsBodyState extends State<OnBoardingViewsBody> {
           decorator: DotsDecorator(
             activeColor: AppColor.kPrimaryColor,
             color: AppColor.kPrimaryColor.withValues(alpha: 0.5),
-            spacing: const EdgeInsets.all(5.0),
-            size: const Size(9.0, 9.0),
-            activeSize: const Size(18.0, 9.0),
+            spacing: EdgeInsets.all(5.0.w),
+            size: Size(8.0.w, 8.0.h),
+            activeSize: Size(16.0.w, 8.0.h),
             activeShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
             ),
           ),
         ),
-        const SizedBox(
-          height: 40,
+        SizedBox(
+          height: 40.h,
         ),
         Visibility(
           maintainSize: true,
@@ -73,8 +74,8 @@ class _OnBoardingViewsBodyState extends State<OnBoardingViewsBody> {
               Navigator.of(context).pushReplacementNamed(SigninView.routeName);
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: khorizontalPadding,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.w,
               ),
               child: CustomButton(
                   onPressed: () {
@@ -86,8 +87,8 @@ class _OnBoardingViewsBodyState extends State<OnBoardingViewsBody> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 43,
+        SizedBox(
+          height: 43.h,
         )
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/features/questions/cubit/questions_cubit.dart';
 import 'package:liver_diagnosis/features/questions/presentation/views/widgets/question_card.dart';
 
@@ -21,27 +22,34 @@ class QuestionsListView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
+                Icon(
                   Icons.error_outline,
                   color: Colors.red,
-                  size: 60,
+                  size: 50.sp,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 14.h),
                 Text(
                   state.errMessage,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.red,
-                    fontSize: 18,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<QuestionsCubit>().fetchQuestions();
-                  },
-                  child: const Text('Try Again'),
+                SizedBox(height: 14.h),
+                SizedBox(
+                  height: 35.h,
+                  width: 90.w,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      context.read<QuestionsCubit>().fetchQuestions();
+                    },
+                    child: Text(
+                      'Try Again',
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -58,8 +66,11 @@ class QuestionsListView extends StatelessWidget {
             },
           );
         } else {
-          return const Center(
-            child: Text("No questions available."),
+          return Center(
+            child: Text(
+              "No questions available.",
+              style: TextStyle(fontSize: 12.sp),
+            ),
           );
         }
       },

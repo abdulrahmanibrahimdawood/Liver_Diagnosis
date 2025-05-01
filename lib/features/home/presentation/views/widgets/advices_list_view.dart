@@ -26,7 +26,7 @@ class AdvicesListView extends StatelessWidget {
                   Icon(
                     Icons.error_outline,
                     color: Colors.red,
-                    size: 60.sp,
+                    size: 50.sp,
                   ),
                   SizedBox(height: 14.h),
                   Text(
@@ -34,18 +34,22 @@ class AdvicesListView extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.red,
-                      fontSize: 16.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(height: 14.h),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<HomeCubit>().fetchAdvices();
-                    },
-                    child: Text(
-                      'Try Again',
-                      style: TextStyle(fontSize: 12.sp),
+                  SizedBox(
+                    height: 35.h,
+                    width: 90.w,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        context.read<HomeCubit>().fetchAdvices();
+                      },
+                      child: Text(
+                        'Try Again',
+                        style: TextStyle(fontSize: 12.sp),
+                      ),
                     ),
                   ),
                 ],

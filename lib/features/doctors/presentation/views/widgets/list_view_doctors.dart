@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/features/doctors/cubit/cubit/doctor_cubit.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/widgets/doctors_card.dart';
 
@@ -32,27 +33,34 @@ class _ListViewDoctorsState extends State<ListViewDoctors> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
+                Icon(
                   Icons.error_outline,
                   color: Colors.red,
-                  size: 60,
+                  size: 50.sp,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 14.h),
                 Text(
                   state.errMessage,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.red,
-                    fontSize: 18,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<DoctorCubit>().fetchDoctors();
-                  },
-                  child: const Text('Try Again'),
+                SizedBox(height: 14.h),
+                SizedBox(
+                  height: 35.h,
+                  width: 90.w,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      context.read<DoctorCubit>().fetchDoctors();
+                    },
+                    child: Text(
+                      'Try Again',
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -68,16 +76,17 @@ class _ListViewDoctorsState extends State<ListViewDoctors> {
                   DoctorCard(
                     doctors: state.doctors[index],
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 13.sp,
                   )
                 ],
               );
             }),
           );
         } else {
-          return const Center(
-            child: Text("No doctors available."),
+          return Center(
+            child: Text("No doctors available.",
+                style: TextStyle(fontSize: 12.sp)),
           );
         }
       },

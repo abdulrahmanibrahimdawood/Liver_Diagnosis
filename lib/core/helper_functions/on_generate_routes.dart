@@ -1,13 +1,13 @@
-import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
-import 'package:e_commerce/features/analysis/presentation/views/analysis_view.dart';
-import 'package:e_commerce/features/auth/presentation/views/signin_view.dart';
-import 'package:e_commerce/features/auth/presentation/views/signup_view.dart';
-import 'package:e_commerce/features/doctors/presentation/views/doctors_view.dart';
-import 'package:e_commerce/features/home/presentation/views/home_view.dart';
-import 'package:e_commerce/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:e_commerce/features/questions/presentation/views/questions_view.dart';
-import 'package:e_commerce/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:liver_diagnosis/core/widgets/custom_nav_bar.dart';
+import 'package:liver_diagnosis/features/analysis/presentation/views/analysis_view.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/signin_view.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/signup_view.dart';
+import 'package:liver_diagnosis/features/doctors/presentation/views/doctors_view.dart';
+import 'package:liver_diagnosis/features/home/presentation/views/home_view.dart';
+import 'package:liver_diagnosis/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:liver_diagnosis/features/questions/presentation/views/questions_view.dart';
+import 'package:liver_diagnosis/features/splash/presentation/views/splash_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {

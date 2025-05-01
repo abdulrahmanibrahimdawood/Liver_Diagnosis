@@ -1,5 +1,5 @@
-import 'package:e_commerce/core/helper_functions/api.dart';
-import 'package:e_commerce/features/checkout/data/models/doctors_model.dart';
+import 'package:liver_diagnosis/core/helper_functions/api.dart';
+import 'package:liver_diagnosis/features/checkout/data/models/doctors_model.dart';
 
 class AllDoctorsServices {
   Future<List<DoctorsModel>> getAllDoctors() async {

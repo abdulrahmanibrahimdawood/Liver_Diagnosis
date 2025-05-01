@@ -1,9 +1,9 @@
-import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/core/services/shared_preferences_singleton.dart';
-import 'package:e_commerce/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:liver_diagnosis/constants.dart';
+import 'package:liver_diagnosis/core/services/shared_preferences_singleton.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/signin_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(

@@ -1,10 +1,10 @@
-import 'package:e_commerce/core/utils/app_color.dart';
-import 'package:e_commerce/features/doctors/presentation/views/map_view.dart';
-import 'package:e_commerce/features/home/presentation/views/widgets/advices_list_view.dart';
-import 'package:e_commerce/features/home/presentation/views/widgets/custom_drower.dart';
-import 'package:e_commerce/features/home/presentation/views/widgets/icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
+import 'package:liver_diagnosis/features/doctors/presentation/views/map_view.dart';
+import 'package:liver_diagnosis/features/home/presentation/views/widgets/advices_list_view.dart';
+import 'package:liver_diagnosis/features/home/presentation/views/widgets/custom_drower.dart';
+import 'package:liver_diagnosis/features/home/presentation/views/widgets/icon_button.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

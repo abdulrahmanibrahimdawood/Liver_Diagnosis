@@ -3,10 +3,10 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:math' as math;
 import 'package:crypto/crypto.dart';
-import 'package:e_commerce/core/errors/exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:liver_diagnosis/core/errors/exceptions.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class FirebaseAuthService {

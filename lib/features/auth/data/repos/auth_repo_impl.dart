@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce/core/errors/exceptions.dart';
-import 'package:e_commerce/core/errors/failuer.dart';
-import 'package:e_commerce/core/services/firebase_auth_service.dart';
-import 'package:e_commerce/features/auth/data/models/user_model.dart';
-import 'package:e_commerce/features/auth/domain/entites/user_entity.dart';
-import 'package:e_commerce/features/auth/data/repos/auth_repo.dart';
+import 'package:liver_diagnosis/core/errors/exceptions.dart';
+import 'package:liver_diagnosis/core/errors/failuer.dart';
+import 'package:liver_diagnosis/core/services/firebase_auth_service.dart';
+import 'package:liver_diagnosis/features/auth/data/models/user_model.dart';
+import 'package:liver_diagnosis/features/auth/data/repos/auth_repo.dart';
+import 'package:liver_diagnosis/features/auth/domain/entites/user_entity.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;

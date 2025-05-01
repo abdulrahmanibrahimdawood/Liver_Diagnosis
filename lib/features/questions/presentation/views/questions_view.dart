@@ -1,8 +1,8 @@
-import 'package:e_commerce/core/widgets/app_bar_inside.dart';
-import 'package:e_commerce/features/questions/presentation/views/widgets/question_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:e_commerce/features/questions/cubit/questions_cubit.dart';
+import 'package:liver_diagnosis/core/widgets/app_bar_inside.dart';
+import 'package:liver_diagnosis/features/questions/cubit/questions_cubit.dart';
+import 'package:liver_diagnosis/features/questions/presentation/views/widgets/question_list_view.dart';
 
 class QuesthionsView extends StatelessWidget {
   const QuesthionsView({super.key});

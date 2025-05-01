@@ -1,19 +1,18 @@
 import 'dart:io';
-
-import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/core/utils/app_color.dart';
-import 'package:e_commerce/core/utils/app_images.dart';
-import 'package:e_commerce/core/widgets/custom_button.dart';
-import 'package:e_commerce/core/widgets/custom_text_form_feild.dart';
-import 'package:e_commerce/core/widgets/password_feild.dart';
-import 'package:e_commerce/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/dont_have_an_account_widget.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/or_divider.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/social_login_botton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liver_diagnosis/constants.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
+import 'package:liver_diagnosis/core/utils/app_images.dart';
+import 'package:liver_diagnosis/core/widgets/custom_button.dart';
+import 'package:liver_diagnosis/core/widgets/custom_text_form_feild.dart';
+import 'package:liver_diagnosis/core/widgets/password_feild.dart';
+import 'package:liver_diagnosis/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/dont_have_an_account_widget.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/or_divider.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/social_login_botton.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});

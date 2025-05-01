@@ -1,7 +1,7 @@
-import 'package:e_commerce/features/doctors/cubit/cubit/doctor_cubit.dart';
-import 'package:e_commerce/features/doctors/presentation/views/widgets/doctors_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:liver_diagnosis/features/doctors/cubit/cubit/doctor_cubit.dart';
+import 'package:liver_diagnosis/features/doctors/presentation/views/widgets/doctors_card.dart';
 
 class ListViewDoctors extends StatefulWidget {
   const ListViewDoctors({

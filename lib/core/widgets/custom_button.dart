@@ -1,7 +1,7 @@
-import 'package:e_commerce/core/utils/app_color.dart';
-import 'package:e_commerce/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
+import 'package:liver_diagnosis/core/utils/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.onPressed, required this.text});

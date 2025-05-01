@@ -1,7 +1,7 @@
-import 'package:e_commerce/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
 
 class IconsButton extends StatelessWidget {
   const IconsButton({

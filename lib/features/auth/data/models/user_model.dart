@@ -1,5 +1,5 @@
-import 'package:e_commerce/features/auth/domain/entites/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:liver_diagnosis/features/auth/domain/entites/user_entity.dart';
 
 class UserModel extends UserEntity {
   UserModel({required super.name, required super.email, required super.uId});

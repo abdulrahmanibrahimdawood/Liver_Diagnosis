@@ -1,7 +1,7 @@
-import 'package:e_commerce/core/utils/app_color.dart';
-import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
+import 'package:liver_diagnosis/core/widgets/custom_nav_bar.dart';
 
 class CustomAppBarInside extends StatelessWidget {
   const CustomAppBarInside({

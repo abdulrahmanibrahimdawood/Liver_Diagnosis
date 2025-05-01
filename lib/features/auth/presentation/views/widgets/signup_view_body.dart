@@ -1,14 +1,14 @@
-import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/core/helper_functions/build_error_bar.dart';
-import 'package:e_commerce/core/widgets/custom_button.dart';
-import 'package:e_commerce/core/widgets/custom_text_form_feild.dart';
-import 'package:e_commerce/core/widgets/password_feild.dart';
-import 'package:e_commerce/features/auth/presentation/cubits/signup_cupit/cubit/signup_cubit.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/have_an_account_widget.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/terms_and_condations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liver_diagnosis/constants.dart';
+import 'package:liver_diagnosis/core/helper_functions/build_error_bar.dart';
+import 'package:liver_diagnosis/core/widgets/custom_button.dart';
+import 'package:liver_diagnosis/core/widgets/custom_text_form_feild.dart';
+import 'package:liver_diagnosis/core/widgets/password_feild.dart';
+import 'package:liver_diagnosis/features/auth/presentation/cubits/signup_cupit/cubit/signup_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/have_an_account_widget.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/terms_and_condations.dart';
 
 class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});

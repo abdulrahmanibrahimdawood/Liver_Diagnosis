@@ -1,7 +1,7 @@
-import 'package:e_commerce/features/auth/domain/entites/user_entity.dart';
-import 'package:e_commerce/features/auth/data/repos/auth_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:liver_diagnosis/features/auth/data/repos/auth_repo.dart';
+import 'package:liver_diagnosis/features/auth/domain/entites/user_entity.dart';
 
 part 'signup_state.dart';
 

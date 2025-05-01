@@ -1,12 +1,12 @@
-import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/core/helper_functions/build_error_bar.dart';
-import 'package:e_commerce/core/services/shared_preferences_singleton.dart';
-import 'package:e_commerce/core/widgets/custom_nav_bar.dart';
-import 'package:e_commerce/core/widgets/custom_progress_hud.dart';
-import 'package:e_commerce/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
-import 'package:e_commerce/features/auth/presentation/views/widgets/signin_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:liver_diagnosis/constants.dart';
+import 'package:liver_diagnosis/core/helper_functions/build_error_bar.dart';
+import 'package:liver_diagnosis/core/services/shared_preferences_singleton.dart';
+import 'package:liver_diagnosis/core/widgets/custom_nav_bar.dart';
+import 'package:liver_diagnosis/core/widgets/custom_progress_hud.dart';
+import 'package:liver_diagnosis/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/signin_view_body.dart';
 
 class SigninViewBodyBlocConsumer extends StatelessWidget {
   const SigninViewBodyBlocConsumer({

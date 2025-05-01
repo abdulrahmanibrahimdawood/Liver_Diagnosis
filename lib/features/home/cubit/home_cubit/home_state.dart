@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/checkout/data/models/advice_model.dart';
+import 'package:liver_diagnosis/features/checkout/data/models/advice_model.dart';
 
 abstract class HomeState {}
 

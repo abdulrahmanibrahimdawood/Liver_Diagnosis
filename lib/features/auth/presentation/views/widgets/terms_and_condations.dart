@@ -1,6 +1,6 @@
-import 'package:e_commerce/features/auth/presentation/views/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liver_diagnosis/features/auth/presentation/views/widgets/custom_check_box.dart';
 
 class TermsAndCondationsWidgets extends StatefulWidget {
   const TermsAndCondationsWidgets({super.key, required this.onChanged});

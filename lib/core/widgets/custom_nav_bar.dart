@@ -1,11 +1,11 @@
-import 'package:e_commerce/core/utils/app_color.dart';
-import 'package:e_commerce/features/analysis/presentation/views/analysis_view.dart';
-import 'package:e_commerce/features/doctors/presentation/views/doctors_view.dart';
-import 'package:e_commerce/features/home/presentation/views/home_view.dart';
-import 'package:e_commerce/features/questions/presentation/views/questions_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
+import 'package:liver_diagnosis/features/analysis/presentation/views/analysis_view.dart';
+import 'package:liver_diagnosis/features/doctors/presentation/views/doctors_view.dart';
+import 'package:liver_diagnosis/features/home/presentation/views/home_view.dart';
+import 'package:liver_diagnosis/features/questions/presentation/views/questions_view.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});

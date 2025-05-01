@@ -23,13 +23,13 @@ class IconsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: hight ?? 60,
-      width: width ?? 60,
+      height: hight ?? 50.h,
+      width: width ?? 50.h,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              blurRadius: 40,
-              spreadRadius: 2,
+              blurRadius: 40.r,
+              spreadRadius: 2.r,
               color: Colors.grey.withValues(alpha: 0.15)),
         ],
         color: colorbox ?? Colors.white,
@@ -38,6 +38,7 @@ class IconsButton extends StatelessWidget {
       child: IconButton(
         onPressed: onPressed,
         icon: FaIcon(
+          size: 22.sp,
           icon,
           color: color ?? AppColor.kPrimaryColor,
         ),

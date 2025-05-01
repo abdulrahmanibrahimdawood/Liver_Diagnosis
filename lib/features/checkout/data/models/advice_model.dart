@@ -13,7 +13,7 @@ class AdviceModel {
 
   factory AdviceModel.fromJson(Map<String, dynamic> jsonData) {
     String baseUrl =
-        "https://79a3-197-53-53-128.ngrok-free.app/projectq-main/project/advice/uploads/";
+        "https://0c00-156-197-244-192.ngrok-free.app/projectq-main/project/advice/uploads/";
     String imagePath = jsonData['advice_image'] ?? "";
 
     if (imagePath.startsWith("uploads/")) {

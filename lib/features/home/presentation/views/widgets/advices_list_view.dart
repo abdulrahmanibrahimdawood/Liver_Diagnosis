@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/features/home/cubit/home_cubit/home_cubit.dart';
 import 'package:liver_diagnosis/features/home/cubit/home_cubit/home_state.dart';
 import 'package:liver_diagnosis/features/home/presentation/views/widgets/advice_card.dart';
@@ -10,7 +11,7 @@ class AdvicesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 330,
+      height: 270.h,
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if (state is HomeLoading) {
@@ -22,27 +23,30 @@ class AdvicesListView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.error_outline,
                     color: Colors.red,
-                    size: 60,
+                    size: 60.sp,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 14.h),
                   Text(
                     state.errMessage,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.red,
-                      fontSize: 18,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 14.h),
                   ElevatedButton(
                     onPressed: () {
                       context.read<HomeCubit>().fetchAdvices();
                     },
-                    child: const Text('Try Again'),
+                    child: Text(
+                      'Try Again',
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
                   ),
                 ],
               ),
@@ -59,8 +63,11 @@ class AdvicesListView extends StatelessWidget {
               },
             );
           } else {
-            return const Center(
-              child: Text("No advice available."),
+            return Center(
+              child: Text(
+                "No advice available.",
+                style: TextStyle(fontSize: 12.sp),
+              ),
             );
           }
         },

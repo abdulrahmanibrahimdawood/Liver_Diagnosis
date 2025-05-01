@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/constants.dart';
 import 'package:liver_diagnosis/core/services/shared_preferences_singleton.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
@@ -34,33 +35,34 @@ class CustomDrawer extends StatelessWidget {
         },
         builder: (context, state) {
           return Drawer(
-            width: 250,
+            width: 220.w,
             child: Stack(
               children: [
                 ListView(
                   padding: EdgeInsets.zero,
                   children: [
-                    const SizedBox(
-                      height: 75,
+                    SizedBox(
+                      height: 70.h,
                       child: DrawerHeader(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppColor.kPrimaryColor,
                         ),
                         child: Row(
                           children: [
                             Icon(
+                              size: 24.sp,
                               Icons.settings,
                               color: Colors.white,
                             ),
                             SizedBox(
-                              width: 10,
+                              width: 8.w,
                             ),
                             Text(
                               'HDx App',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 24,
+                                fontSize: 20.sp,
                               ),
                             ),
                           ],
@@ -68,10 +70,16 @@ class CustomDrawer extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 10),
-                      leading: const Icon(Icons.exit_to_app),
-                      title: const Text('Logout'),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 3.h, horizontal: 10.w),
+                      leading: Icon(
+                        Icons.exit_to_app,
+                        size: 22.sp,
+                      ),
+                      title: Text(
+                        'Logout',
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
                       onTap: () => context.read<LogoutCubit>().signOut(),
                     ),
                   ],
@@ -79,20 +87,20 @@ class CustomDrawer extends StatelessWidget {
                 if (state is LogoutLoading)
                   Container(
                     color: Colors.black.withValues(alpha: .5),
-                    child: const Center(
+                    child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CircularProgressIndicator(
+                          const CircularProgressIndicator(
                             color: AppColor.kPrimaryColor,
                             strokeWidth: 3,
                           ),
-                          SizedBox(height: 16),
+                          SizedBox(height: 14.h),
                           Text(
                             'Logging out...',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

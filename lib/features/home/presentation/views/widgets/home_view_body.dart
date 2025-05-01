@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/map_view.dart';
@@ -16,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: Builder(
         builder: (context) => Padding(
-          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+          padding: EdgeInsets.only(top: 13.h, left: 13.w, right: 13.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -29,10 +30,10 @@ class HomeViewBody extends StatelessWidget {
                     },
                     icon: FontAwesomeIcons.bars,
                   ),
-                  const Row(
+                  Row(
                     children: [
                       SizedBox(
-                        width: 15,
+                        width: 13.w,
                       ),
                       // CustomImageProfile(
                       //   onTap: () {},
@@ -41,45 +42,46 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-              const Align(
+              SizedBox(height: 8.h),
+              Align(
                 alignment: Alignment.topLeft,
                 child: Row(
                   children: [
                     Text(
                       'Welcome to ',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 28.sp, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'HDx app !',
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 28.sp,
                           fontWeight: FontWeight.bold,
                           color: AppColor.kPrimaryColor),
                     ),
                   ],
                 ),
               ),
-              const Align(
+              Align(
                 alignment: Alignment.bottomLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 9, top: 10),
+                  padding: EdgeInsets.only(left: 8.w, top: 9.h),
                   child: Text(
                     'Advice',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style:
+                        TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
               const AdvicesListView(),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 18.h,
               ),
               Container(
-                height: 57,
+                height: 50.h,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                   color: AppColor.kPrimaryColor,
                 ),
                 child: Center(
@@ -95,18 +97,18 @@ class HomeViewBody extends StatelessWidget {
                         ),
                       );
                     },
-                    child: const Text(
+                    child: Text(
                       'Check results',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 22,
+                          fontSize: 22.sp,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 13.h,
               ),
             ],
           ),

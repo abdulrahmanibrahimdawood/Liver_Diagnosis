@@ -16,8 +16,8 @@ class CustomCheckBox extends StatelessWidget {
         onChecked(!isChecked);
       },
       child: AnimatedContainer(
-          width: 24.w,
-          height: 24.h,
+          width: 22.h,
+          height: 22.h,
           duration: const Duration(
             milliseconds: 100,
           ),

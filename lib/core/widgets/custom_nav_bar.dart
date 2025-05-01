@@ -33,8 +33,7 @@ class _MainPageState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
+    return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: IndexedStack(
@@ -42,14 +41,14 @@ class _MainPageState extends State<CustomNavBar> {
           children: _pages,
         ),
         bottomNavigationBar: Container(
-          height: 67.h,
+          height: 78.h,
           decoration: const BoxDecoration(
             color: Colors.white,
           ),
           child: BottomNavigationBar(
             selectedLabelStyle:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
-            unselectedLabelStyle: TextStyle(fontSize: 13.sp),
+                TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp),
+            unselectedLabelStyle: TextStyle(fontSize: 12.sp),
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             items: List.generate(4, (index) {
@@ -66,8 +65,8 @@ class _MainPageState extends State<CustomNavBar> {
                     _selectedIndex == index
                         ? _activeIcons[index]
                         : _inactiveIcons[index],
-                    width: 24.sp,
-                    height: 24.sp,
+                    width: 22.sp,
+                    height: 22.sp,
                   ),
                 ),
                 label: index == 0

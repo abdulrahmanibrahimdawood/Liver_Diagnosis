@@ -26,7 +26,7 @@ class MapScreenState extends State<MapScreen> {
   final String orsApiKey =
       '5b3ce3597851110001cf6248b0c45dd132794f37b4310837c49fcda4';
   late Location location;
-  late final StreamSubscription<LocationData> _locationSubscription;
+  StreamSubscription<LocationData>? _locationSubscription;
   double? remainingDistance;
   bool alerted = false;
 
@@ -58,6 +58,8 @@ class MapScreenState extends State<MapScreen> {
 
     try {
       LocationData userLocation = await location.getLocation();
+      if (!mounted) return;
+
       setState(() {
         currentLocation = userLocation;
         _updateMarkers();
@@ -68,8 +70,9 @@ class MapScreenState extends State<MapScreen> {
         15.0,
       );
 
-      await _getRoute(); // أول مرة فقط
+      await _getRoute();
     } catch (e) {
+      if (!mounted) return;
       _showMessage("Failed to get location: $e");
     }
 
@@ -97,7 +100,6 @@ class MapScreenState extends State<MapScreen> {
         SystemSound.play(SystemSoundType.alert);
       }
 
-      // تحديث المسار عند كل حركة
       await _getRoute();
     });
   }
@@ -151,6 +153,7 @@ class MapScreenState extends State<MapScreen> {
       final List<dynamic> coords =
           data['features'][0]['geometry']['coordinates'];
 
+      if (!mounted) return;
       setState(() {
         routePoints =
             coords.map((coord) => LatLng(coord[1], coord[0])).toList();
@@ -162,14 +165,20 @@ class MapScreenState extends State<MapScreen> {
 
   void _showMessage(String message) {
     if (mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(message)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            message,
+            style: TextStyle(fontSize: 12.sp),
+          ),
+        ),
+      );
     }
   }
 
   @override
   void dispose() {
-    _locationSubscription.cancel();
+    _locationSubscription?.cancel();
     super.dispose();
   }
 

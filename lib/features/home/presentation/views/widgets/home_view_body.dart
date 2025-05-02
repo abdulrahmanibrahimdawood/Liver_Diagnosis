@@ -77,33 +77,33 @@ class HomeViewBody extends StatelessWidget {
               SizedBox(
                 height: 18.h,
               ),
-              Container(
+              SizedBox(
                 height: 50.h,
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  color: AppColor.kPrimaryColor,
-                ),
-                child: Center(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MapScreen(
-                            lat: 30.0444,
-                            long: 31.2357,
-                          ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MapScreen(
+                          lat: 30.0444,
+                          long: 31.2357,
                         ),
-                      );
-                    },
-                    child: Text(
-                      'Check results',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.bold),
+                      ),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: AppColor.kPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
+                  ),
+                  child: Text(
+                    'Check results',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

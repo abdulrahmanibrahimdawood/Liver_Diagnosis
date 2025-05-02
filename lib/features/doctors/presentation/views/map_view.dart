@@ -42,7 +42,7 @@ class MapScreenState extends State<MapScreen> {
     if (!serviceEnabled) {
       serviceEnabled = await location.requestService();
       if (!serviceEnabled) {
-        _showMessage("❌ Location service is disabled.");
+        _showMessage("Location service is disabled.");
         return;
       }
     }
@@ -51,7 +51,7 @@ class MapScreenState extends State<MapScreen> {
     if (permissionGranted == PermissionStatus.denied) {
       permissionGranted = await location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) {
-        _showMessage("❌ Location permission not granted.");
+        _showMessage("Location permission not granted.");
         return;
       }
     }
@@ -70,7 +70,7 @@ class MapScreenState extends State<MapScreen> {
 
       await _getRoute(); // أول مرة فقط
     } catch (e) {
-      _showMessage("❌ Failed to get location: $e");
+      _showMessage("Failed to get location: $e");
     }
 
     _locationSubscription =
@@ -93,7 +93,7 @@ class MapScreenState extends State<MapScreen> {
 
       if (distance <= 100 && !alerted) {
         alerted = true;
-        _showMessage("📍 You are near your destination!");
+        _showMessage("You are near your destination!");
         SystemSound.play(SystemSoundType.alert);
       }
 
@@ -136,8 +136,7 @@ class MapScreenState extends State<MapScreen> {
     final distance = const Distance().as(LengthUnit.Meter, start, end);
 
     if (distance > 6000000) {
-      _showMessage(
-          "❌ The distance between points is too large (over 6000 km).");
+      _showMessage("The distance between points is too large (over 6000 km).");
       return;
     }
 
@@ -157,7 +156,7 @@ class MapScreenState extends State<MapScreen> {
             coords.map((coord) => LatLng(coord[1], coord[0])).toList();
       });
     } else {
-      _showMessage("❌ Failed to fetch route.");
+      _showMessage("Failed to fetch route.");
     }
   }
 
@@ -222,7 +221,7 @@ class MapScreenState extends State<MapScreen> {
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(
-                  "📏 Remaining distance: ${remainingDistance!.toStringAsFixed(2)} km",
+                  "Remaining distance: ${remainingDistance!.toStringAsFixed(2)} km",
                   style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   textAlign: TextAlign.center,
                 ),

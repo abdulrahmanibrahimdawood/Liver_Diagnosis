@@ -15,10 +15,10 @@ class MapScreen extends StatefulWidget {
   const MapScreen({super.key, required this.lat, required this.long});
 
   @override
-  _MapScreenState createState() => _MapScreenState();
+  MapScreenState createState() => MapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class MapScreenState extends State<MapScreen> {
   final MapController mapController = MapController();
   List<LatLng> routePoints = [];
   List<Marker> markers = [];

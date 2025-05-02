@@ -40,7 +40,7 @@ class QuestionsListView extends StatelessWidget {
                 SizedBox(height: 14.h),
                 SizedBox(
                   height: 35.h,
-                  width: 90.w,
+                  width: 100.w,
                   child: ElevatedButton(
                     onPressed: () {
                       context.read<QuestionsCubit>().fetchQuestions();

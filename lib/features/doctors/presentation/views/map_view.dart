@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -26,18 +27,39 @@ class _MapScreenState extends State<MapScreen> {
   LocationData? currentLocation;
   final String orsApiKey =
       '5b3ce3597851110001cf6248b0c45dd132794f37b4310837c49fcda4';
+  late Location location;
+  late final StreamSubscription<LocationData> _locationSubscription;
 
   @override
   void initState() {
     super.initState();
+    location = Location();
     _getCurrentLocation();
   }
 
   Future<void> _getCurrentLocation() async {
-    var location = Location();
+    bool serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+        _showMessage("❌ خدمة الموقع غير مفعلة");
+        return;
+      }
+    }
+
+    PermissionStatus permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) {
+        _showMessage("❌ لم يتم منح صلاحية الموقع");
+        return;
+      }
+    }
 
     try {
-      var userLocation = await location.getLocation();
+      LocationData userLocation = await location.getLocation();
+      print(
+          "📍 الموقع الحالي: ${userLocation.latitude}, ${userLocation.longitude}");
       setState(() {
         currentLocation = userLocation;
         _updateMarkers();
@@ -50,10 +72,14 @@ class _MapScreenState extends State<MapScreen> {
 
       _getRoute();
     } catch (e) {
-      print("❌ فشل في الحصول على الموقع: $e");
+      _showMessage("❌ فشل في الحصول على الموقع: $e");
     }
 
-    location.onLocationChanged.listen((LocationData newLocation) {
+    _locationSubscription =
+        location.onLocationChanged.listen((LocationData newLocation) {
+      if (!mounted) return;
+      print(
+          "📍 الموقع المحدث: ${newLocation.latitude}, ${newLocation.longitude}");
       setState(() {
         currentLocation = newLocation;
         _updateMarkers();
@@ -93,9 +119,16 @@ class _MapScreenState extends State<MapScreen> {
         LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
     final end = LatLng(widget.lat, widget.long);
 
+    final distance = const Distance().as(LengthUnit.Meter, start, end);
+    if (distance > 6000000) {
+      _showMessage("❌ المسافة بين النقطتين كبيرة جدًا (أكثر من 6000 كم)");
+      return;
+    }
+
     final response = await http.get(
       Uri.parse(
-          'https://api.openrouteservice.org/v2/directions/driving-car?api_key=$orsApiKey&start=${start.longitude},${start.latitude}&end=${end.longitude},${end.latitude}'),
+        'https://api.openrouteservice.org/v2/directions/driving-car?api_key=$orsApiKey&start=${start.longitude},${start.latitude}&end=${end.longitude},${end.latitude}',
+      ),
     );
 
     if (response.statusCode == 200) {
@@ -108,8 +141,23 @@ class _MapScreenState extends State<MapScreen> {
             coords.map((coord) => LatLng(coord[1], coord[0])).toList();
       });
     } else {
-      print('❌ فشل في جلب المسار');
+      print('❌ Status Code: ${response.statusCode}');
+      print('📦 Response Body: ${response.body}');
+      _showMessage("❌ فشل في جلب المسار");
     }
+  }
+
+  void _showMessage(String message) {
+    if (mounted) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
+    }
+  }
+
+  @override
+  void dispose() {
+    _locationSubscription.cancel();
+    super.dispose();
   }
 
   @override
@@ -119,9 +167,9 @@ class _MapScreenState extends State<MapScreen> {
         centerTitle: true,
         title: const Text('Maps'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios), // أيقونة تشبه iPhone
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
-            Navigator.pop(context); // إغلاق الشاشة عند الضغط
+            Navigator.pop(context);
           },
         ),
       ),

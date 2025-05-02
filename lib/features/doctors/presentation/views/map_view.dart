@@ -27,7 +27,6 @@ class _MapScreenState extends State<MapScreen> {
       '5b3ce3597851110001cf6248b0c45dd132794f37b4310837c49fcda4';
   late Location location;
   late final StreamSubscription<LocationData> _locationSubscription;
-  Timer? _debounce;
   double? remainingDistance;
   bool alerted = false;
 
@@ -69,13 +68,13 @@ class _MapScreenState extends State<MapScreen> {
         15.0,
       );
 
-      _getRoute();
+      await _getRoute(); // أول مرة فقط
     } catch (e) {
       _showMessage("❌ Failed to get location: $e");
     }
 
     _locationSubscription =
-        location.onLocationChanged.listen((LocationData newLocation) {
+        location.onLocationChanged.listen((LocationData newLocation) async {
       if (!mounted) return;
 
       setState(() {
@@ -98,8 +97,8 @@ class _MapScreenState extends State<MapScreen> {
         SystemSound.play(SystemSoundType.alert);
       }
 
-      if (_debounce?.isActive ?? false) _debounce!.cancel();
-      _debounce = Timer(const Duration(seconds: 10), () => _getRoute());
+      // تحديث المسار عند كل حركة
+      await _getRoute();
     });
   }
 
@@ -156,7 +155,6 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         routePoints =
             coords.map((coord) => LatLng(coord[1], coord[0])).toList();
-        remainingDistance = distance / 1000;
       });
     } else {
       _showMessage("❌ Failed to fetch route.");
@@ -173,7 +171,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void dispose() {
     _locationSubscription.cancel();
-    _debounce?.cancel();
     super.dispose();
   }
 
@@ -207,7 +204,7 @@ class _MapScreenState extends State<MapScreen> {
                     Polyline(
                       points: routePoints,
                       strokeWidth: 4.w,
-                      color: Colors.blue.withOpacity(0.7),
+                      color: Colors.blue.withValues(alpha: .7),
                     ),
                   ],
                 ),
@@ -221,7 +218,7 @@ class _MapScreenState extends State<MapScreen> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withValues(alpha: .6),
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(

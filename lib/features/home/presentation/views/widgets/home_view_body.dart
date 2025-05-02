@@ -91,8 +91,8 @@ class HomeViewBody extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => const MapScreen(
-                            lat: 30.5667,
-                            long: 31.5,
+                            lat: 30.0444,
+                            long: 31.2357,
                           ),
                         ),
                       );

@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart'; // للتنبيه الصوتي
 
 class MapScreen extends StatefulWidget {
   final double lat;
@@ -30,6 +31,10 @@ class _MapScreenState extends State<MapScreen> {
   late Location location;
   late final StreamSubscription<LocationData> _locationSubscription;
 
+  Timer? _debounce;
+  double? remainingDistance;
+  bool alerted = false;
+
   @override
   void initState() {
     super.initState();
@@ -42,7 +47,7 @@ class _MapScreenState extends State<MapScreen> {
     if (!serviceEnabled) {
       serviceEnabled = await location.requestService();
       if (!serviceEnabled) {
-        _showMessage("❌ خدمة الموقع غير مفعلة");
+        _showMessage("❌ Location service is disabled.");
         return;
       }
     }
@@ -51,15 +56,13 @@ class _MapScreenState extends State<MapScreen> {
     if (permissionGranted == PermissionStatus.denied) {
       permissionGranted = await location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) {
-        _showMessage("❌ لم يتم منح صلاحية الموقع");
+        _showMessage("❌ Location permission not granted.");
         return;
       }
     }
 
     try {
       LocationData userLocation = await location.getLocation();
-      print(
-          "📍 الموقع الحالي: ${userLocation.latitude}, ${userLocation.longitude}");
       setState(() {
         currentLocation = userLocation;
         _updateMarkers();
@@ -72,17 +75,37 @@ class _MapScreenState extends State<MapScreen> {
 
       _getRoute();
     } catch (e) {
-      _showMessage("❌ فشل في الحصول على الموقع: $e");
+      _showMessage("❌ Failed to get location: $e");
     }
 
     _locationSubscription =
         location.onLocationChanged.listen((LocationData newLocation) {
       if (!mounted) return;
-      print(
-          "📍 الموقع المحدث: ${newLocation.latitude}, ${newLocation.longitude}");
+
       setState(() {
         currentLocation = newLocation;
         _updateMarkers();
+      });
+
+      final start =
+          LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
+      final end = LatLng(widget.lat, widget.long);
+      final distance = const Distance().as(LengthUnit.Meter, start, end);
+
+      setState(() {
+        remainingDistance = distance / 1000;
+      });
+
+      // تنبيه إذا اقترب من الوجهة
+      if (distance <= 100 && !alerted) {
+        alerted = true;
+        _showMessage("📍 You are near your destination!");
+        SystemSound.play(SystemSoundType.alert); // صوت تنبيه
+      }
+
+      if (_debounce?.isActive ?? false) _debounce!.cancel();
+      _debounce = Timer(const Duration(seconds: 10), () {
+        _getRoute();
       });
     });
   }
@@ -121,7 +144,8 @@ class _MapScreenState extends State<MapScreen> {
 
     final distance = const Distance().as(LengthUnit.Meter, start, end);
     if (distance > 6000000) {
-      _showMessage("❌ المسافة بين النقطتين كبيرة جدًا (أكثر من 6000 كم)");
+      _showMessage(
+          "❌ The distance between points is too large (over 6000 km).");
       return;
     }
 
@@ -139,11 +163,10 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         routePoints =
             coords.map((coord) => LatLng(coord[1], coord[0])).toList();
+        remainingDistance = distance / 1000;
       });
     } else {
-      print('❌ Status Code: ${response.statusCode}');
-      print('📦 Response Body: ${response.body}');
-      _showMessage("❌ فشل في جلب المسار");
+      _showMessage("❌ Failed to fetch route.");
     }
   }
 
@@ -157,6 +180,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void dispose() {
     _locationSubscription.cancel();
+    _debounce?.cancel();
     super.dispose();
   }
 
@@ -173,26 +197,49 @@ class _MapScreenState extends State<MapScreen> {
           },
         ),
       ),
-      body: FlutterMap(
-        mapController: mapController,
-        options: MapOptions(
-          initialCenter: LatLng(widget.lat, widget.long),
-          initialZoom: 15.0,
-        ),
+      body: Stack(
         children: [
-          TileLayer(
-            urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-          ),
-          MarkerLayer(markers: List.from(markers)),
-          if (routePoints.isNotEmpty)
-            PolylineLayer(
-              polylines: [
-                Polyline(
-                  points: routePoints,
-                  strokeWidth: 4.0,
-                  color: Colors.blue.withOpacity(0.7),
+          FlutterMap(
+            mapController: mapController,
+            options: MapOptions(
+              initialCenter: LatLng(widget.lat, widget.long),
+              initialZoom: 15.0,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+              ),
+              MarkerLayer(markers: List.from(markers)),
+              if (routePoints.isNotEmpty)
+                PolylineLayer(
+                  polylines: [
+                    Polyline(
+                      points: routePoints,
+                      strokeWidth: 4.0,
+                      color: Colors.blue.withOpacity(0.7),
+                    ),
+                  ],
                 ),
-              ],
+            ],
+          ),
+          if (remainingDistance != null)
+            Positioned(
+              top: 20,
+              left: 20,
+              right: 20,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  "📏 Remaining distance: ${remainingDistance!.toStringAsFixed(2)} km",
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
         ],
       ),

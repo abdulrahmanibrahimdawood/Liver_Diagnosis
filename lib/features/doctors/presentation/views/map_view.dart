@@ -5,17 +5,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/services.dart'; // للتنبيه الصوتي
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MapScreen extends StatefulWidget {
   final double lat;
   final double long;
 
-  const MapScreen({
-    super.key,
-    required this.lat,
-    required this.long,
-  });
+  const MapScreen({super.key, required this.lat, required this.long});
 
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -30,7 +27,6 @@ class _MapScreenState extends State<MapScreen> {
       '5b3ce3597851110001cf6248b0c45dd132794f37b4310837c49fcda4';
   late Location location;
   late final StreamSubscription<LocationData> _locationSubscription;
-
   Timer? _debounce;
   double? remainingDistance;
   bool alerted = false;
@@ -96,17 +92,14 @@ class _MapScreenState extends State<MapScreen> {
         remainingDistance = distance / 1000;
       });
 
-      // تنبيه إذا اقترب من الوجهة
       if (distance <= 100 && !alerted) {
         alerted = true;
         _showMessage("📍 You are near your destination!");
-        SystemSound.play(SystemSoundType.alert); // صوت تنبيه
+        SystemSound.play(SystemSoundType.alert);
       }
 
       if (_debounce?.isActive ?? false) _debounce!.cancel();
-      _debounce = Timer(const Duration(seconds: 10), () {
-        _getRoute();
-      });
+      _debounce = Timer(const Duration(seconds: 10), () => _getRoute());
     });
   }
 
@@ -116,21 +109,21 @@ class _MapScreenState extends State<MapScreen> {
     if (currentLocation != null) {
       markers.add(
         Marker(
-          width: 80.0,
-          height: 80.0,
+          width: 80.w,
+          height: 80.h,
           point:
               LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
-          child: const Icon(Icons.my_location, color: Colors.blue, size: 40.0),
+          child: Icon(Icons.my_location, color: Colors.blue, size: 40.sp),
         ),
       );
     }
 
     markers.add(
       Marker(
-        width: 80.0,
-        height: 80.0,
+        width: 80.w,
+        height: 80.h,
         point: LatLng(widget.lat, widget.long),
-        child: const Icon(Icons.location_on, color: Colors.red, size: 40.0),
+        child: Icon(Icons.location_on, color: Colors.red, size: 40.sp),
       ),
     );
   }
@@ -141,8 +134,8 @@ class _MapScreenState extends State<MapScreen> {
     final start =
         LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
     final end = LatLng(widget.lat, widget.long);
-
     final distance = const Distance().as(LengthUnit.Meter, start, end);
+
     if (distance > 6000000) {
       _showMessage(
           "❌ The distance between points is too large (over 6000 km).");
@@ -189,12 +182,10 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Maps'),
+        title: Text('Maps', style: TextStyle(fontSize: 20.sp)),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: Icon(Icons.arrow_back_ios, size: 20.sp),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: Stack(
@@ -215,7 +206,7 @@ class _MapScreenState extends State<MapScreen> {
                   polylines: [
                     Polyline(
                       points: routePoints,
-                      strokeWidth: 4.0,
+                      strokeWidth: 4.w,
                       color: Colors.blue.withOpacity(0.7),
                     ),
                   ],
@@ -224,19 +215,18 @@ class _MapScreenState extends State<MapScreen> {
           ),
           if (remainingDistance != null)
             Positioned(
-              top: 20,
-              left: 20,
-              right: 20,
+              top: 20.h,
+              left: 20.w,
+              right: 20.w,
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(
                   "📏 Remaining distance: ${remainingDistance!.toStringAsFixed(2)} km",
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -245,7 +235,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _getRoute,
-        child: const Icon(Icons.directions),
+        child: Icon(Icons.directions, size: 24.sp),
       ),
     );
   }

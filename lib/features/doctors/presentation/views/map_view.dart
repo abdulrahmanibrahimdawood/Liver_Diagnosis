@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:liver_diagnosis/core/utils/app_color.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
@@ -186,10 +187,21 @@ class MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColor.kPrimaryColor,
         centerTitle: true,
-        title: Text('Maps', style: TextStyle(fontSize: 20.sp)),
+        title: Text(
+          'Maps',
+          style: TextStyle(
+              fontSize: 19.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, size: 20.sp),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 20.sp,
+            color: Colors.white,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
       ),

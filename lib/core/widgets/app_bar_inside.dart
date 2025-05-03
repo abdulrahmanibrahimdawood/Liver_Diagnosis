@@ -28,26 +28,16 @@ class CustomAppBarInside extends StatelessWidget {
       ),
       Positioned(
         top: 8.h,
-        left: 7.w,
-        child: Padding(
-          padding: EdgeInsets.only(left: 16.0.w),
-          child: Container(
-            height: 38.h,
-            width: 40.w,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8.r),
-            ),
-            child: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, CustomNavBar.routeName);
-              },
-              icon: Icon(
-                size: 20.sp,
-                Icons.arrow_back_ios_new,
-                color: AppColor.kPrimaryColor,
-              ),
-            ),
+        left: 0.w,
+        child: IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, CustomNavBar.routeName);
+          },
+          icon: Icon(
+            size: 20.sp,
+            Icons.arrow_back_ios_new,
+            // color: AppColor.kPrimaryColor,
+            color: Colors.white,
           ),
         ),
       ),

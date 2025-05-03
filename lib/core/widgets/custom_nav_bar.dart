@@ -72,7 +72,7 @@ class _MainPageState extends State<CustomNavBar> {
                 label: index == 0
                     ? 'Home'
                     : index == 1
-                        ? 'Medical Analysis'
+                        ? 'Labs'
                         : index == 2
                             ? 'Qs & Ans'
                             : 'Doctors',

@@ -10,8 +10,7 @@ class AdvicesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 270.h,
+    return Expanded(
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if (state is HomeLoading) {
@@ -59,10 +58,13 @@ class AdvicesListView extends StatelessWidget {
             return ListView.builder(
               itemCount: state.advices.length,
               physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
+              // scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return AdviceCard(
-                  advice: state.advices[index],
+                return Padding(
+                  padding: EdgeInsets.only(top: 8.0.h),
+                  child: AdviceCard(
+                    advice: state.advices[index],
+                  ),
                 );
               },
             );

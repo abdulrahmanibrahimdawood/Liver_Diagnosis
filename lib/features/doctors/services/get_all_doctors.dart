@@ -5,7 +5,7 @@ class AllDoctorsServices {
   Future<List<DoctorsModel>> getAllDoctors() async {
     Map<String, dynamic> response = await Api().get(
       url:
-          'https://79a3-197-53-53-128.ngrok-free.app/projectq-main/project/doc/doctor_api.php',
+          'http://da3d-197-53-37-64.ngrok-free.app//projectq-main/project/doc/doctor_api.php',
       token: null,
     );
 

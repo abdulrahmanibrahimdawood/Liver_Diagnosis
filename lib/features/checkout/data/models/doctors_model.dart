@@ -21,7 +21,7 @@ class DoctorsModel {
 
   factory DoctorsModel.fromJson(Map<String, dynamic> jsonData) {
     String baseUrl =
-        "https://79a3-197-53-53-128.ngrok-free.app/projectq-main/project/doc/uploads/";
+        "http://da3d-197-53-37-64.ngrok-free.app/projectq-main/project/doc/uploads/";
     String imagePath = jsonData['image'] ?? "";
 
     if (imagePath.startsWith("uploads/")) {

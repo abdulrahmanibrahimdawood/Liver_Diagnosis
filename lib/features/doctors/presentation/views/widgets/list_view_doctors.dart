@@ -5,9 +5,7 @@ import 'package:liver_diagnosis/features/doctors/cubit/cubit/doctor_cubit.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/widgets/doctors_card.dart';
 
 class ListViewDoctors extends StatefulWidget {
-  const ListViewDoctors({
-    super.key,
-  });
+  const ListViewDoctors({super.key});
 
   @override
   State<ListViewDoctors> createState() => _ListViewDoctorsState();
@@ -85,8 +83,10 @@ class _ListViewDoctorsState extends State<ListViewDoctors> {
           );
         } else {
           return Center(
-            child: Text("No doctors available.",
-                style: TextStyle(fontSize: 12.sp)),
+            child: Text(
+              "No doctors available.",
+              style: TextStyle(fontSize: 12.sp),
+            ),
           );
         }
       },

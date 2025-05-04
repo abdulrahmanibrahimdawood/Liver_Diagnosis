@@ -9,10 +9,11 @@ class DoctorCubit extends Cubit<DoctorState> {
 
   final AllDoctorsServices _doctorsServices = AllDoctorsServices();
 
-  Future<void> fetchDoctors() async {
+  Future<void> fetchDoctors({String? governorate}) async {
     emit(DoctorLoading());
     try {
-      final doctors = await _doctorsServices.getAllDoctors();
+      final doctors =
+          await _doctorsServices.getAllDoctors(governorate: governorate);
       if (doctors.isEmpty) {
         emit(DoctorFailure('No doctors found.'));
       } else {

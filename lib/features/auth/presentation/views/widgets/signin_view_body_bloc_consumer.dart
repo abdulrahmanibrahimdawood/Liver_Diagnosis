@@ -18,6 +18,8 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninSuccess) {
+          buildErrorBar(context, 'You have been logged in successfully.');
+
           SharedPrefs.setBoolLogin(kIsLogedin, true);
           Navigator.pushNamed(context, CustomNavBar.routeName);
         }

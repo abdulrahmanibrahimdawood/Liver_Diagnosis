@@ -61,7 +61,6 @@ class HomeViewBody extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16.h),
-
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
@@ -73,39 +72,7 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-
               const AdvicesListView(),
-
-              // SizedBox(
-              //   height: 50.h,
-              //   width: MediaQuery.of(context).size.width,
-              //   child: TextButton(
-              //     onPressed: () {
-              //       Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //           builder: (context) => const MapScreen(
-              //             lat: 30.0444,
-              //             long: 31.2357,
-              //           ),
-              //         ),
-              //       );
-              //     },
-              //     style: TextButton.styleFrom(
-              //       backgroundColor: AppColor.kPrimaryColor,
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(12.r),
-              //       ),
-              //     ),
-              //     child: Text(
-              //       'Check results',
-              //       style: TextStyle(
-              //           color: Colors.white,
-              //           fontSize: 22.sp,
-              //           fontWeight: FontWeight.bold),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

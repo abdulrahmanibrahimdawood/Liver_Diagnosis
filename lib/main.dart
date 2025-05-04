@@ -1,4 +1,6 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,8 +13,6 @@ import 'package:liver_diagnosis/features/splash/presentation/views/splash_view.d
 import 'package:liver_diagnosis/firebase_options.dart';
 import 'package:liver_diagnosis/generated/l10n.dart';
 
-// ab@gmail.com
-// 123456789
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
@@ -21,7 +21,12 @@ void main() async {
   );
   await SharedPrefs.init();
   setupGetit();
-  runApp(const HebatoDiagnosis());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const HebatoDiagnosis(),
+    ),
+  );
 }
 
 class HebatoDiagnosis extends StatelessWidget {
@@ -35,6 +40,8 @@ class HebatoDiagnosis extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          builder: DevicePreview.appBuilder,
+          locale: DevicePreview.locale(context),
           theme: ThemeData(
             fontFamily: 'Cairo',
           ),
@@ -46,12 +53,9 @@ class HebatoDiagnosis extends StatelessWidget {
           ],
           debugShowCheckedModeBanner: false,
           onGenerateRoute: onGenerateRoutes,
-          // initialRoute: CustomNavBar.routeName,
-
           home: const SplashView(),
         );
       },
     );
   }
 }
-//

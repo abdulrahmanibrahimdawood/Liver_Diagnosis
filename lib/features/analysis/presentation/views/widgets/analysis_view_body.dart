@@ -7,6 +7,7 @@ import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/cus
 import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/diagnosis_message.dart';
 import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/text_form_feild_to_analysis.dart';
 import 'package:http/http.dart' as http;
+import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/text_form_feild_validator.dart';
 
 class AnalysisViewBody extends StatefulWidget {
   const AnalysisViewBody({super.key});
@@ -197,20 +198,20 @@ class _AnalysisViewBodyState extends State<AnalysisViewBody> {
                 SizedBox(height: 8.h),
                 Row(
                   children: [
-                    TextFormFeildAnalysis(
+                    TextFormFeildvaidator(
                       data: "Age",
                       color: Colors.black,
                       controller: ageController,
                     ),
                     SizedBox(width: 46.w),
-                    TextFormFeildAnalysis(
+                    TextFormFeildvaidator(
                       keyboardType: TextInputType.text,
                       data: "Gender",
                       color: Colors.black,
                       controller: genderController,
                     ),
                     SizedBox(width: 46.w),
-                    TextFormFeildAnalysis(
+                    TextFormFeildvaidator(
                       data: "ALT",
                       controller: altController,
                     ),
@@ -219,12 +220,12 @@ class _AnalysisViewBodyState extends State<AnalysisViewBody> {
                 SizedBox(height: 18.h),
                 Row(
                   children: [
-                    TextFormFeildAnalysis(
+                    TextFormFeildvaidator(
                       data: "AST",
                       controller: astController,
                     ),
                     SizedBox(width: 46.w),
-                    TextFormFeildAnalysis(
+                    TextFormFeildvaidator(
                       data: "T Protien",
                       controller: totalProteinController,
                     ),

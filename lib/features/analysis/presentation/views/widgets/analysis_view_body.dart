@@ -28,17 +28,22 @@ class _AnalysisViewBodyState extends State<AnalysisViewBody> {
   final TextEditingController dbilController = TextEditingController();
   final TextEditingController albController = TextEditingController();
 
+  /// helper function to convert empty inputs to "0"
+  String cleanInput(String? input) {
+    return input?.trim().isEmpty ?? true ? '0' : input!.trim();
+  }
+
   Future<void> submitData() async {
     final uri = Uri.parse('http://10.0.2.2:8000/predict').replace(
       queryParameters: {
-        'Age': ageController.text,
-        'Gender': genderController.text,
-        'SGPT_ALT': altController.text,
-        'SGOT_AST': astController.text,
-        'Total_Proteins': totalProteinController.text,
-        'Alkaline_Phosphatase': alpController.text,
-        'Direct_Bilirubin': dbilController.text,
-        'Albumin': albController.text,
+        'Age': cleanInput(ageController.text),
+        'Gender': cleanInput(genderController.text),
+        'SGPT_ALT': cleanInput(altController.text),
+        'SGOT_AST': cleanInput(astController.text),
+        'Total_Proteins': cleanInput(totalProteinController.text),
+        'Alkaline_Phosphatase': cleanInput(alpController.text),
+        'Direct_Bilirubin': cleanInput(dbilController.text),
+        'Albumin': cleanInput(albController.text),
       },
     );
 

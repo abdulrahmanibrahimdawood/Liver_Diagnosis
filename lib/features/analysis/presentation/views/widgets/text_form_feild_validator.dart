@@ -65,7 +65,6 @@ class TextFormFeildvaidator extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.r),
                     borderSide: const BorderSide(color: Colors.red),
                   ),
-                  // ما نستخدمش errorText هنا علشان الحقل ميتغيرش حجمه
                   errorText: null,
                 ),
                 onChanged: (_) {

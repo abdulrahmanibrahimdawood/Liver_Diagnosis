@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
 
-class TextFormFeildvaidator extends StatefulWidget {
+class TextFormFeildvaidator extends StatelessWidget {
   const TextFormFeildvaidator({
     super.key,
     this.color = AppColor.kPrimaryColor,
@@ -10,59 +10,86 @@ class TextFormFeildvaidator extends StatefulWidget {
     this.controller,
     this.keyboardType = TextInputType.number,
   });
+
   final TextInputType? keyboardType;
   final Color? color;
   final String data;
   final TextEditingController? controller;
 
   @override
-  State<TextFormFeildvaidator> createState() => _TextFormFeildvaidatorState();
-}
-
-class _TextFormFeildvaidatorState extends State<TextFormFeildvaidator> {
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(
-          child: Text(
-            widget.data,
-            style: TextStyle(
-              fontSize: 13.sp,
-              color: widget.color ?? AppColor.kPrimaryColor,
-              fontWeight: FontWeight.bold,
+    return FormField<String>(
+      validator: (value) {
+        if (controller?.text.isEmpty ?? true) {
+          return 'Enter $data';
+        }
+        return null;
+      },
+      builder: (state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              data,
+              style: TextStyle(
+                fontSize: 13.sp,
+                color: color ?? AppColor.kPrimaryColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ),
-        SizedBox(height: 4.h),
-        Align(
-          alignment: Alignment.topLeft,
-          child: SizedBox(
-            height: 30.h,
-            width: 70.w,
-            child: TextFormField(
-              keyboardType: widget.keyboardType,
-              controller: widget.controller,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(bottom: 4.h, left: 10.h),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: const BorderSide(color: AppColor.kPrimaryColor),
+            SizedBox(height: 4.h),
+            SizedBox(
+              height: 30.h,
+              width: 70.w,
+              child: TextFormField(
+                controller: controller,
+                keyboardType: keyboardType,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(bottom: 4.h, left: 10.h),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                    borderSide: const BorderSide(color: Colors.black),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                    borderSide: const BorderSide(color: AppColor.kPrimaryColor),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                    borderSide: const BorderSide(color: Colors.red),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                    borderSide: const BorderSide(color: Colors.red),
+                  ),
+                  // ما نستخدمش errorText هنا علشان الحقل ميتغيرش حجمه
+                  errorText: null,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: const BorderSide(color: Colors.black),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: const BorderSide(color: AppColor.kPrimaryColor),
+                onChanged: (_) {
+                  state.didChange(controller?.text);
+                },
+              ),
+            ),
+            SizedBox(height: 4.h),
+            Visibility(
+              visible: state.hasError,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: Text(
+                state.errorText ?? '',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 10.sp,
                 ),
               ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }

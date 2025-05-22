@@ -7,6 +7,7 @@ class DoctorsModel {
   final double longitude;
   final double latitude;
   final int age;
+  final String phone;
 
   DoctorsModel({
     required this.id,
@@ -17,26 +18,27 @@ class DoctorsModel {
     required this.longitude,
     required this.latitude,
     required this.age,
+    required this.phone,
   });
 
   factory DoctorsModel.fromJson(Map<String, dynamic> jsonData) {
-    String baseUrl =
-        "http://da3d-197-53-37-64.ngrok-free.app/projectq-main/project/doc/uploads/";
-    String imagePath = jsonData['image'] ?? "";
-
+    const baseUrl =
+        "http://b977-156-197-211-75.ngrok-free.app/projectq-main/project/doc/uploads/";
+    var imagePath = jsonData['image'] ?? "";
     if (imagePath.startsWith("uploads/")) {
       imagePath = imagePath.replaceFirst("uploads/", "");
     }
-
     return DoctorsModel(
       id: jsonData['id'].toString(),
       image: "$baseUrl$imagePath",
-      name: jsonData['doc_name'] ?? "No name",
-      location: jsonData['doc_location'] ?? "No location",
-      governorate: jsonData['doc_governorate'] ?? "No governorate",
+      name: jsonData['doc_name']?.toString().trim() ?? "No name",
+      location: jsonData['doc_location']?.toString().trim() ?? "No location",
+      governorate:
+          jsonData['doc_governorate']?.toString().trim() ?? "No governorate",
       longitude: double.tryParse(jsonData['longitude'].toString()) ?? 0.0,
       latitude: double.tryParse(jsonData['latitude'].toString()) ?? 0.0,
       age: int.tryParse(jsonData['doc_age'].toString()) ?? 0,
+      phone: jsonData['phone']?.toString().trim() ?? "1288170356",
     );
   }
 }

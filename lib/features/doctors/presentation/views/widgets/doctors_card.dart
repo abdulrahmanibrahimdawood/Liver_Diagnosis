@@ -150,7 +150,7 @@ class DoctorCard extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: '+20 101 234 5678',
+                        text: '+20 ${doctors.phone}',
                         style: TextStyle(fontSize: 16.sp),
                       ),
                     ],

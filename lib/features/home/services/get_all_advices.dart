@@ -5,7 +5,7 @@ class AllAdviceServices {
   Future<List<AdviceModel>> getAllAdvices() async {
     Map<String, dynamic> response = await Api().get(
       url:
-          'http://da3d-197-53-37-64.ngrok-free.app//projectq-main/project/advice/advice.php',
+          'http://b977-156-197-211-75.ngrok-free.app//projectq-main/project/advice/advice.php',
       token: null,
     );
 

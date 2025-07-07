@@ -4,13 +4,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2' // تأكد من أن هذا محدث
-        classpath 'com.google.gms:google-services:4.3.10' // ✅ أضف هذا هنا
+        classpath 'com.android.tools.build:gradle:8.3.0' // ✅ تحديث AGP
+        classpath 'com.google.gms:google-services:4.3.10' // ✅ Firebase
     }
 }
 
 allprojects {
-    ext.kotlin_version = "1.9.22" // ✅ تحديث Kotlin
+    ext.kotlin_version = "1.9.22" // ✅ Kotlin جديد
     repositories {
         google()
         mavenCentral()

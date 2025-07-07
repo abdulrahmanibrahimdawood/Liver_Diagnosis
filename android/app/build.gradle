@@ -1,5 +1,5 @@
 plugins {
-    id "com.android.application" version "8.3.0" // ✅ نفس إصدار الكلاسباث
+    id "com.android.application"
     id 'com.google.gms.google-services'
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
@@ -8,8 +8,7 @@ plugins {
 android {
     namespace = "com.example.e_commerce"
     compileSdk = flutter.compileSdkVersion
-    // ndkVersion = flutter.ndkVersion // ❌ احذف لو مش محتاج NDK
-
+ 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -21,10 +20,10 @@ android {
 
     defaultConfig {
         applicationId = "com.example.e_commerce"
-        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        minSdkVersion 23
     }
 
     buildTypes {

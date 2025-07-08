@@ -75,7 +75,10 @@ class PageViewItem extends StatelessWidget {
           height: 24.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          padding: EdgeInsets.only(
+            left: 16.w,
+            right: 16.w,
+          ),
           child: Text(
             subtitle,
             style: TextStyle(fontSize: 14.sp, color: Colors.grey),

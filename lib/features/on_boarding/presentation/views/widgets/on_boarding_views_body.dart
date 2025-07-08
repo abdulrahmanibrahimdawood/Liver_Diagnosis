@@ -89,7 +89,7 @@ class _OnBoardingViewsBodyState extends State<OnBoardingViewsBody> {
           ),
         ),
         SizedBox(
-          height: 43.h,
+          height: 5.h,
         )
       ],
     );

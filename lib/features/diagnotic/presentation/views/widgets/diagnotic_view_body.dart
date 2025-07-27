@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:liver_diagnosis/core/widgets/app_bar_inside.dart';
 import 'package:liver_diagnosis/core/widgets/custom_button.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/custom_text_feild_diagnosis.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/diagnosis_message.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/text_form_feild_to_analysis.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/text_form_feild_validator.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/widgets/custom_text_feild_diagnosis.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/widgets/diagnosis_message.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/widgets/text_form_feild_to_analysis.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/widgets/text_form_feild_validator.dart';
 
 class AnalysisViewBody extends StatefulWidget {
   const AnalysisViewBody({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liver_diagnosis/core/widgets/custom_nav_bar.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/analysis_view.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/diagnotic_view.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/signin_view.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/signup_view.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/doctors_view.dart';

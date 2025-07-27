@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liver_diagnosis/features/analysis/presentation/views/widgets/analysis_view_body.dart';
+import 'package:liver_diagnosis/features/diagnotic/presentation/views/widgets/diagnotic_view_body.dart';
 
 class AnalysisView extends StatelessWidget {
   const AnalysisView({super.key});

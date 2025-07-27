@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liver_diagnosis/features/home/cubit/home_cubit/home_cubit.dart';
-import 'package:liver_diagnosis/features/home/cubit/home_cubit/home_state.dart';
+import 'package:liver_diagnosis/features/home/presentation/managers/advices_cubit/home_cubit.dart';
+import 'package:liver_diagnosis/features/home/presentation/managers/advices_cubit/home_state.dart';
 import 'package:liver_diagnosis/features/home/presentation/views/widgets/advice_card.dart';
 
 class AdvicesListView extends StatelessWidget {

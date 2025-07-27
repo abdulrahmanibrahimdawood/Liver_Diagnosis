@@ -6,7 +6,7 @@ import 'package:liver_diagnosis/core/helper_functions/build_error_bar.dart';
 import 'package:liver_diagnosis/core/widgets/custom_button.dart';
 import 'package:liver_diagnosis/core/widgets/custom_text_form_feild.dart';
 import 'package:liver_diagnosis/core/widgets/password_feild.dart';
-import 'package:liver_diagnosis/features/auth/presentation/cubits/signup_cupit/cubit/signup_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/managers/signup_cupit/cubit/signup_cubit.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/have_an_account_widget.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/terms_and_condations.dart';
 

@@ -26,7 +26,7 @@ class OnBoardingPageView extends StatelessWidget {
                 style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
               ),
               Text(
-                'HDx App',
+                'LDx App',
                 style: TextStyle(
                     fontSize: 28.sp,
                     fontWeight: FontWeight.bold,

@@ -23,7 +23,7 @@ class DoctorsModel {
 
   factory DoctorsModel.fromJson(Map<String, dynamic> jsonData) {
     const baseUrl =
-        "https://15e48924a410.ngrok-free.app/projectq-main/project/doc/uploads/";
+        "https://2fc9b7c9c94f.ngrok-free.app/projectq-main/project/doc/uploads/";
     var imagePath = jsonData['image'] ?? "";
     if (imagePath.startsWith("uploads/")) {
       imagePath = imagePath.replaceFirst("uploads/", "");

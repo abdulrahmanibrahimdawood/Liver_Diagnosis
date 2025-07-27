@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/widgets/app_bar_inside.dart';
-import 'package:liver_diagnosis/features/doctors/cubit/cubit/doctor_cubit.dart';
+import 'package:liver_diagnosis/features/doctors/presentation/managers/doctors_cubit/cubit/doctor_cubit.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/widgets/list_view_doctors.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/widgets/text_form_feild_search.dart';
 

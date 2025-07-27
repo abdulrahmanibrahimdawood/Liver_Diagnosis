@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/services/get_it_servece.dart';
 import 'package:liver_diagnosis/features/auth/data/repos/auth_repo.dart';
-import 'package:liver_diagnosis/features/auth/presentation/cubits/signup_cupit/cubit/signup_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/managers/signup_cupit/cubit/signup_cubit.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/signup_view_body_bloc_consumer.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';

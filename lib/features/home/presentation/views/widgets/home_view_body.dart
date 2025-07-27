@@ -51,7 +51,7 @@ class HomeViewBody extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'HDx app !',
+                      'LDx app !',
                       style: TextStyle(
                           fontSize: 28.sp,
                           fontWeight: FontWeight.bold,

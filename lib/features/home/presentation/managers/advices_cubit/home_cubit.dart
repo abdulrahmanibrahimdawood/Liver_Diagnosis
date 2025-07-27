@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:liver_diagnosis/features/home/cubit/home_cubit/home_state.dart';
+import 'package:liver_diagnosis/features/home/presentation/managers/advices_cubit/home_state.dart';
 import 'package:liver_diagnosis/features/home/services/get_all_advices.dart';
 
 class HomeCubit extends Cubit<HomeState> {

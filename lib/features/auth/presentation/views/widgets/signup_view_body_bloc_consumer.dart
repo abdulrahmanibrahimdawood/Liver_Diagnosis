@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liver_diagnosis/core/helper_functions/build_error_bar.dart';
-import 'package:liver_diagnosis/features/auth/presentation/cubits/signup_cupit/cubit/signup_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/managers/signup_cupit/cubit/signup_cubit.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/signup_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 

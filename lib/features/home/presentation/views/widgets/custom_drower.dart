@@ -5,8 +5,8 @@ import 'package:liver_diagnosis/constants.dart';
 import 'package:liver_diagnosis/core/services/shared_preferences_singleton.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/signin_view.dart';
-import 'package:liver_diagnosis/features/home/cubit/logout/logout_cubit.dart';
-import 'package:liver_diagnosis/features/home/cubit/logout/logout_state.dart';
+import 'package:liver_diagnosis/features/home/presentation/managers/logout_cubit/logout_cubit.dart';
+import 'package:liver_diagnosis/features/home/presentation/managers/logout_cubit/logout_state.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -58,7 +58,7 @@ class CustomDrawer extends StatelessWidget {
                               width: 8.w,
                             ),
                             Text(
-                              'HDx App',
+                              'LDx App',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

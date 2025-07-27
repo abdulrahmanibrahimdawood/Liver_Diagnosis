@@ -9,7 +9,7 @@ import 'package:liver_diagnosis/core/utils/app_images.dart';
 import 'package:liver_diagnosis/core/widgets/custom_button.dart';
 import 'package:liver_diagnosis/core/widgets/custom_text_form_feild.dart';
 import 'package:liver_diagnosis/core/widgets/password_feild.dart';
-import 'package:liver_diagnosis/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/managers/signin_cubit/cubit/signin_cubit.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/dont_have_an_account_widget.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/or_divider.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/social_login_botton.dart';

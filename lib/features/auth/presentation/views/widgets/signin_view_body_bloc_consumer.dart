@@ -5,7 +5,7 @@ import 'package:liver_diagnosis/core/helper_functions/build_error_bar.dart';
 import 'package:liver_diagnosis/core/services/shared_preferences_singleton.dart';
 import 'package:liver_diagnosis/core/widgets/custom_nav_bar.dart';
 import 'package:liver_diagnosis/core/widgets/custom_progress_hud.dart';
-import 'package:liver_diagnosis/features/auth/presentation/cubits/signin_cubit/cubit/signin_cubit.dart';
+import 'package:liver_diagnosis/features/auth/presentation/managers/signin_cubit/cubit/signin_cubit.dart';
 import 'package:liver_diagnosis/features/auth/presentation/views/widgets/signin_view_body.dart';
 
 class SigninViewBodyBlocConsumer extends StatelessWidget {

@@ -1,19 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:liver_diagnosis/features/questions/data/models/questions_model.dart';
-import 'package:liver_diagnosis/features/questions/services/get_all_questions.dart';
+import 'package:liver_diagnosis/features/questions/data/repos/questions_repo.dart';
+import 'package:liver_diagnosis/features/questions/data/repos/questions_repo_impl.dart';
 
 part 'question_state.dart';
 
 class QuestionsCubit extends Cubit<QuestionsState> {
   QuestionsCubit() : super(QuestionsInitial());
 
-  final AllQuestionsServices _questionsServices = AllQuestionsServices();
+  final QuestionRepo _questionRepo = QuestionRepoImpl();
 
   Future<void> fetchQuestions() async {
     emit(QuestionsLoading());
     try {
-      final questions = await _questionsServices.getAllQuestions();
+      final questions = await _questionRepo.getAllQuestions();
       if (questions.isEmpty) {
         emit(QuestionsFailure('No questions found.'));
       } else {

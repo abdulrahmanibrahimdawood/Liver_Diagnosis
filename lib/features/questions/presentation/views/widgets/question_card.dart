@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/questions_model.dart';
+import 'package:liver_diagnosis/features/questions/data/models/questions_model.dart';
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({

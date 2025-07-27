@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/advice_model.dart';
+import 'package:liver_diagnosis/features/home/data/models/advice_model.dart';
 
 class AdviceCard extends StatelessWidget {
   const AdviceCard({

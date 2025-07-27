@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liver_diagnosis/core/utils/app_color.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/doctors_model.dart';
+import 'package:liver_diagnosis/features/doctors/data/models/doctors_model.dart';
 import 'package:liver_diagnosis/features/doctors/presentation/views/map_view.dart';
 
 class DoctorCard extends StatelessWidget {

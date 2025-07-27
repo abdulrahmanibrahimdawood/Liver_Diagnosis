@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:liver_diagnosis/features/checkout/data/models/questions_model.dart';
+import 'package:liver_diagnosis/features/questions/data/models/questions_model.dart';
 import 'package:liver_diagnosis/features/questions/services/get_all_questions.dart';
 
 part 'question_state.dart';

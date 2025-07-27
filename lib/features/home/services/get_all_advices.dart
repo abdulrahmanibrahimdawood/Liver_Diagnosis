@@ -1,5 +1,5 @@
 import 'package:liver_diagnosis/core/helper_functions/api.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/advice_model.dart';
+import 'package:liver_diagnosis/features/home/data/models/advice_model.dart';
 
 class AllAdviceServices {
   Future<List<AdviceModel>> getAllAdvices() async {

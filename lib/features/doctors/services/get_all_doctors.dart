@@ -1,5 +1,5 @@
 import 'package:liver_diagnosis/core/helper_functions/api.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/doctors_model.dart';
+import 'package:liver_diagnosis/features/doctors/data/models/doctors_model.dart';
 
 class AllDoctorsServices {
   Future<List<DoctorsModel>> getAllDoctors({String? governorate}) async {

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:liver_diagnosis/features/checkout/data/models/doctors_model.dart';
+import 'package:liver_diagnosis/features/doctors/data/models/doctors_model.dart';
 import 'package:liver_diagnosis/features/doctors/services/get_all_doctors.dart';
 
 part 'doctor_state.dart';

@@ -1,16 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:liver_diagnosis/features/home/data/repos/home_repo.dart';
+import 'package:liver_diagnosis/features/home/data/repos/home_repo_impl.dart';
 import 'package:liver_diagnosis/features/home/presentation/managers/advices_cubit/home_state.dart';
-import 'package:liver_diagnosis/features/home/services/get_all_advices.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 
-  final AllAdviceServices _advicesServices = AllAdviceServices();
+  final AdviceRepo _adviceRepo = AdviceRepoImpl();
 
   Future<void> fetchAdvices() async {
     emit(HomeLoading());
     try {
-      final advices = await _advicesServices.getAllAdvices();
+      final advices = await _adviceRepo.getAllAdvices();
       if (advices.isEmpty) {
         emit(HomeFailure('No advices found.'));
       } else {

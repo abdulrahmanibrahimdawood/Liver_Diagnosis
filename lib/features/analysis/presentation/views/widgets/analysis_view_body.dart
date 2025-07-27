@@ -33,90 +33,6 @@ class _AnalysisViewBodyState extends State<AnalysisViewBody> {
     return input?.trim().isEmpty ?? true ? '0' : input!.trim();
   }
 
-  Future<void> submitData() async {
-    final uri = Uri.parse('http://10.0.2.2:8000/predict').replace(
-      queryParameters: {
-        'Age': cleanInput(ageController.text),
-        'Gender': cleanInput(genderController.text),
-        'SGPT_ALT': cleanInput(altController.text),
-        'SGOT_AST': cleanInput(astController.text),
-        'Total_Proteins': cleanInput(totalProteinController.text),
-        'Alkaline_Phosphatase': cleanInput(alpController.text),
-        'Direct_Bilirubin': cleanInput(dbilController.text),
-        'Albumin': cleanInput(albController.text),
-      },
-    );
-
-    try {
-      final response = await http.get(uri);
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> jsonResult = json.decode(response.body);
-        final String liverResult = jsonResult['Liver_Result'] ?? '';
-
-        if (!mounted) return;
-
-        if (liverResult == 'Not a liver patient') {
-          DialogHelper.naturalMessage(context);
-        } else if (liverResult == 'liver patient') {
-          DialogHelper.injeryMessage(context);
-        } else {
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text('Unexpected result',
-                  style:
-                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
-              content: Text(liverResult,
-                  style:
-                      TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w700)),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text('OK', style: TextStyle(fontSize: 18.sp)),
-                )
-              ],
-            ),
-          );
-        }
-      } else {
-        if (!mounted) return;
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('Error',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
-            content: Text(
-                'Server responded with status: ${response.statusCode}',
-                style: TextStyle(fontSize: 13.sp)),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('OK', style: TextStyle(fontSize: 18.sp)),
-              )
-            ],
-          ),
-        );
-      }
-    } catch (e) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Error',
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
-          content:
-              Text('Failed to connect: $e', style: TextStyle(fontSize: 13.sp)),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text('OK', style: TextStyle(fontSize: 18.sp)),
-            )
-          ],
-        ),
-      );
-    }
-  }
-
   @override
   void dispose() {
     ageController.dispose();
@@ -240,5 +156,89 @@ class _AnalysisViewBodyState extends State<AnalysisViewBody> {
         ],
       ),
     );
+  }
+
+  Future<void> submitData() async {
+    final uri = Uri.parse('http://10.0.2.2:8000/predict').replace(
+      queryParameters: {
+        'Age': cleanInput(ageController.text),
+        'Gender': cleanInput(genderController.text),
+        'SGPT_ALT': cleanInput(altController.text),
+        'SGOT_AST': cleanInput(astController.text),
+        'Total_Proteins': cleanInput(totalProteinController.text),
+        'Alkaline_Phosphatase': cleanInput(alpController.text),
+        'Direct_Bilirubin': cleanInput(dbilController.text),
+        'Albumin': cleanInput(albController.text),
+      },
+    );
+
+    try {
+      final response = await http.get(uri);
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> jsonResult = json.decode(response.body);
+        final String liverResult = jsonResult['Liver_Result'] ?? '';
+
+        if (!mounted) return;
+
+        if (liverResult == 'Not a liver patient') {
+          DialogHelper.naturalMessage(context);
+        } else if (liverResult == 'liver patient') {
+          DialogHelper.injeryMessage(context);
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('Unexpected result',
+                  style:
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
+              content: Text(liverResult,
+                  style:
+                      TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w700)),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('OK', style: TextStyle(fontSize: 18.sp)),
+                )
+              ],
+            ),
+          );
+        }
+      } else {
+        if (!mounted) return;
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
+            content: Text(
+                'Server responded with status: ${response.statusCode}',
+                style: TextStyle(fontSize: 13.sp)),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK', style: TextStyle(fontSize: 18.sp)),
+              )
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Error',
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700)),
+          content:
+              Text('Failed to connect: $e', style: TextStyle(fontSize: 13.sp)),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK', style: TextStyle(fontSize: 18.sp)),
+            )
+          ],
+        ),
+      );
+    }
   }
 }

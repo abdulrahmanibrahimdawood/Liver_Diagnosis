@@ -1,6 +1,6 @@
-# e_commerce
+# Liver Diagnosis
 
-A new Flutter project.
+Welcome to the Liver Diagnosis App. This project aims to provide a preliminary diagnosis of liver health using AI. Liver Diagnosis offers a wide range of advice and specialist doctors, directing patients to the appropriate doctor using maps.
 
 ## Getting Started
 
@@ -14,3 +14,4 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+

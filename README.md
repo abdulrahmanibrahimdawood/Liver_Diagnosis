@@ -12,6 +12,11 @@ Welcome to the Liver Diagnosis App. This project aims to provide a preliminary d
 - AI-based liver health diagnosis.
 - List of tips for maintaining liver health.
 
+## Technologies Used
 
-
-
+- Flutter: For building the cross-platform mobile application.
+- REST API: For backend services, ensuring secure data communication.
+- Token-Based Authentication: For secure user authentication and authorization.
+- Google Fonts: For a wide variety of stylish and readable fonts.
+- Maps: open street map.
+  

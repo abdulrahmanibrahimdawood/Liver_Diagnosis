@@ -6,14 +6,12 @@ Welcome to the Liver Diagnosis App. This project aims to provide a preliminary d
 
 ## Features
 
-User-friendly interface: Designed to be intuitive and easy to use.
+- User-friendly interface: Designed to be intuitive and easy to use.
+- List of specialist doctors.
+- Directing patients to the nearest doctor using maps.
+- AI-based liver health diagnosis.
+- List of tips for maintaining liver health.
 
-List of specialist doctors.
 
-Directing patients to the nearest doctor using maps.
-
-AI-based liver health diagnosis.
-
-List of tips for maintaining liver health.
 
 

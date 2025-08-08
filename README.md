@@ -4,18 +4,16 @@ Welcome to the Liver Diagnosis App. This project aims to provide a preliminary d
 
 ![UI Preview](assets/images/ui.png)
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+User-friendly interface: Designed to be intuitive and easy to use.
 
-A few resources to get you started if this is your first Flutter project:
+List of specialist doctors.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Directing patients to the nearest doctor using maps.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+AI-based liver health diagnosis.
 
+List of tips for maintaining liver health.
 
 

@@ -1,18 +1,24 @@
 # About This Repository
 
-Welcome to the Liver Diagnosis App. This project aims to provide a preliminary diagnosis of liver health using AI. Liver Diagnosis offers a wide range of advice and specialist doctors, directing patients to the appropriate doctor using maps.
+Welcome to the Liver Diagnosis App, This project aims to provide a preliminary diagnosis of liver health using AI, Liver Diagnosis offers a wide range of advice and specialist doctors, directing patients to the appropriate doctor using maps.
 
-## Getting Started
+![UI Preview](assets/images/ui.png)
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- User-friendly interface: Designed to be intuitive and easy to use.
+- List of specialist doctors.
+- Directing patients to the nearest doctor using maps.
+- AI-based liver health diagnosis.
+- List of tips for maintaining liver health.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technologies Used
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter: For building the cross-platform mobile application.
+- REST API: For backend services, ensuring secure data communication.
+- Firebase Authentication: For secure user authentication.
+- Google Fonts: For a wide variety of stylish and readable fonts.
+- Maps: open street map.
+  
 
 

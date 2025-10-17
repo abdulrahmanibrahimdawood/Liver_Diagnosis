@@ -4,13 +4,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.0' // ✅ تحديث AGP
-        classpath 'com.google.gms:google-services:4.3.10' // ✅ Firebase
+        classpath 'com.android.tools.build:gradle:8.7.0'
+        classpath 'com.google.gms:google-services:4.4.2'
     }
 }
 
 allprojects {
-    ext.kotlin_version = "1.9.22" // ✅ Kotlin جديد
+    ext.kotlin_version = "1.9.25"
+
     repositories {
         google()
         mavenCentral()
@@ -18,9 +19,11 @@ allprojects {
 }
 
 rootProject.buildDir = "../build"
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
